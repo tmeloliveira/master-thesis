@@ -3,15 +3,15 @@
                                   % projetos, usar [phd,project],
                                   % [msc,proposal], etc.
 
-\usepackage[brazil]{babel}        % se o documento for em português, OU
-%\usepackage[english]{babel}      % se o documento for em inglês
+% \usepackage[brazil]{babel}     % se o documento for em português, OU
 % \usepackage[latin1]{inputenc}
+\usepackage[english]{babel}      % se o documento for em inglês
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{type1ec}
 \usepackage{graphicx}
 \usepackage[a4paper,
-  portuguese,
+  english,
   bookmarks=true,
   bookmarksnumbered=true,
   linktocpage,
@@ -31,55 +31,58 @@
 % cada chave.
 
 % Um exemplo para documentos em português é apresentado a seguir:
-\ppgccufmg{
-  title={Protocolo para Verificação de Erros\\em Redes Totalmente Confiáveis},
-  authorrev={da Camara Neto, Vilar Fiuza},
-  cutter={D1234p},
-  cdu={519.6*82.10},
-  university={Universidade Federal de Minas Gerais},
-  course={Ciência da Computação},
-  address={Belo Horizonte},
-  date={2008-03},
-  keywords={Visão Computacional, Redes, Sabotagens},
-  advisor={Adamastor Pompeu Setúbal},
-%  approval={img/approvalsheet.eps},
-%  approval=[-2.5cm][1]{aprovalsheet},
-  abstract={Resumo}{resumo},
-  abstract=[english]{Abstract}{abstract},
-  abstract={Resumo Estendido}{resumoest},
-  dedication={dedicatoria},
-  ack={agradecimentos},
-%  ack=[Acknowledgments]{ack},
-  epigraphtext={A verdade é o contrário da mentira, \\
-    e a mentira é o oposto da verdade.}{Autor desconhecido},
-  indexkeys={1.~Computação --- Teses. 2.~Redes --- Teses. I.~Orientador.
-    II.~Título.},
-}
+% \ppgccufmg{
+%   title={Protocolo para Verificação de Erros\\em Redes Totalmente Confiáveis},
+%   authorrev={Oliveira, Thiago Melo de},
+%   cutter={D1234p},
+%   cdu={519.6*82.10},
+%   university={Universidade Federal de Minas Gerais},
+%   course={Ciência da Computação},
+%   address={Belo Horizonte},
+%   date={2020-03},
+%   keywords={Visão Computacional, Redes, Sabotagens},
+%   advisor={Nivio Ziviani},
+%   coadvisor={Adriano Veloso},
+%   %  approval={img/approvalsheet.eps},
+%   %  approval=[-2.5cm][1]{aprovalsheet},
+%   abstract={Resumo}{resumo},
+%   abstract=[english]{Abstract}{abstract},
+%   abstract={Resumo Estendido}{resumoest},
+%   dedication={dedicatoria},
+%   ack={agradecimentos},
+%   % ack=[Acknowledgments]{ack},
+%   epigraphtext={A verdade é o contrário da mentira, \\
+%     e a mentira é o oposto da verdade.}{Autor desconhecido},
+%   indexkeys={1.~Computação --- Teses. 2.~Redes --- Teses. I.~Orientador.
+%     II.~Título.},
+% }
 
 % Um exemplo para documentos em inglês é apresentado a seguir (lembre-se de
 % usar \usepackage[english]{babel}):
-%\ppgccufmg{
-%  title={Protocol for Error-Verification inside\\Totally Error-Free
-%    Networks},
-%  authorrev={da Camara Neto, Vilar Fiuza},
-%  cutter={D1234p},
-%  cdu={519.6*82.10},
-%  university={Federal University of Minas Gerais},
-%  course={Computer Science},
-%  portuguesetitle={Protocolo para Verificação de Erros\\em Redes Totalmente
-%    Confiáveis},
-%  portugueseuniversity={Universidade Federal de Minas Gerais},
-%  portuguesecourse={Ciência da Computação},
-%  address={Belo Horizonte},
-%  date={2008-03},
-%  advisor={Adamastor Pompeu Setúbal},
-%  approval={img/approvalsheet.eps},
-%  abstract=[brazil]{Resumo}{resumo},
-%  abstract={Abstract}{abstract},
-%  dedication={dedicatoria},
-%  ack={agradecimentos},
-%  epigraphtext={Truth and lie are opposite things.}{Unknown},
-%}
+\ppgccufmg{
+ title={Protocol for Error-Verification inside\\Totally Error-Free
+    Networks},
+ authorrev={da Camara Neto, Vilar Fiuza},
+ cutter={D1234p},
+ cdu={519.6*82.10},
+ university={Federal University of Minas Gerais},
+ course={Computer Science},
+ portuguesetitle={Protocolo para Verificação de Erros\\em Redes Totalmente
+    Confiáveis},
+ portugueseuniversity={Universidade Federal de Minas Gerais},
+ portuguesecourse={Ciência da Computação},
+ address={Belo Horizonte},
+ date={2008-03},
+ advisor={Nivio Ziviani},
+ coadvisor={Adriano Veloso},
+ % approval={img/approvalsheet.eps},
+ abstract=[brazil]{Resumo}{resumo},
+ abstract={Abstract}{abstract},
+ dedication={dedicatoria},
+ ack={agradecimentos},
+ keywords={Insert Keywords Here},
+ epigraphtext={Truth and lie are opposite things.}{Unknown},
+}
 
 
 % Os três comandos seguintes são apenas para gerar texto para ocupar espaço nas

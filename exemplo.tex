@@ -45,165 +45,46 @@
 }
 
 
-% Os três comandos seguintes são apenas para gerar texto para ocupar espaço nas
-% páginas.
-\newcommand{\dummytxta}{%
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.\par
-}
+\chapter{Introduction}
 
-\newcommand{\dummytxtb}{%
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque
-porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et
-dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
-nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
-ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea
-voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem
-eum fugiat quo voluptas nulla pariatur?\par
-}
+The International Association for the Study of Pain (IASP) defines pain as "an unpleasant sensory and emotional experience associated with actual or potential tissue damage, or described in terms of such damage". The definition accompanying notes also establishes that "the inability to communicate verbally does not negate the possibility that an individual is experiencing pain and is in need of appropriate pain-relieving treatment."
 
-\newcommand{\dummytxtc}{%
-At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
-officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum
-quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta
-nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat
-facere possimus, omnis voluptas assumenda est, omnis dolor
-repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum
-necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non
-recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut
-reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus
-asperiores repellat.\par
-}
+As infants are unable to self-report pain, its diagnosis is, therefore, one of the hardest to do in the medical field. To overcome such obstacles, studies have used non-verbal responses like visible and easily definable indicators that indicate the presence of pain. Combinations of crying with facial expressions, posture, and movements, aided by physiological measurements, have been tested and found to be reliable indicators. From these studies, several observational scales have been published and verified. 
 
-\newcommand{\dummytxt}{\dummytxta\dummytxtb\dummytxtc}
+In the case of fetuses, however, there is still some discussion on the feasibility of developing such scales. As we have even more restrict possibilities of pain assessment, pain diagnosis becomes even more difficult.
 
-\chapter{Introdução}
+\section{Motivation}
 
-Segundo \cite{horn86robot}, todo triângulo equilátero tem os lados iguais. Já
-segundo \cite{shashua97photometric}, todo quadrado também tem.
+With studies showing that fetuses beyond a certain age also experience pain, early identification of this discomfort can be valuable in many situations.
 
-Veja que o pacote \verb|natbib| permite uma série de formas diferentes para
-fazer referências bibliográficas. O comando padrão, \verb|\cite|, realiza a
-citação comum vista no parágrafo anterior. Outros comandos permitem, por
-exemplo, citar somente o autor --- por exemplo, citar o trabalho de
-\citeauthor{samaras99coupled} --- ou colocar automaticamente a citação entre
-parênteses \citep{hougen93estimation, sato99illumination2, sato99illumination1,
-sato01stability}. Os comandos usados foram, respectivamente, \verb|\citeauthor|
-e \verb|\citep|. Veja a documentação do \verb|natbib| na Internet para conhecer
-outros comandos e exemplos de uso.
+One good example is intrauterine surgery, which may be of significant benefit in the future development and survival of the fetus. Early correction (prior to birth) of eventual problems will likely increase the odds of a healthy baby. These procedures, however, are quite invasive to the fetus and could eventually cause harm. The assessment of pain during the intrauterine life of a fetus is, therefore, a task with the potential of bringing great improvements to fetus life quality.
 
-Citações aleatórias para fazer com que as referências bibliográficas ocupem
-mais de uma página: \cite{bichsel92simple, dror01statistics, guisser92new}.
+Another important discussion in the field is related to abortion. In the United States, a 2016 law from the state of Utah determines that women seeking abortion 20 weeks or more into a pregnancy will first have to be given anesthesia or painkillers. This procedure is intended not for them, but for the fetus. 
 
+This law generated a lot of ethical debate on the topic, as the exact week when a fetus experience pain is not well defined, and at the same time, abortion is only legal until a certain week. So discussion arrises not only if the fetus can or can not experience pain, but also as it may be the case that fetuses can only experience pain after weeks in which abortion is no longer possible.
 
-\section{Motivação}
+Evidence of the presence of pain in this scenario would be a great contribution to this delicate situation and may even aid the decision by the doctors and the mother.
 
-\dummytxtb\dummytxta
+For both scenarios, the current standard for assessing pain in infants and fetuses relies on caregivers’ observation of specific behaviors such as facial expression, but these observations are subject to bias and can be affected by several factors, such as identity, background, culture, and gender, which may lead to inconsistent assessment and treatment of pain. An impartial perspective during the pain assessment process could also bring a more realistic and deterministic view on the subject.
 
-\subsection{Sub-motivação}
+\section{Contributions}
 
+As fetuses respond to stimuli like anesthesia and present facial expressions which are evidence of pain, the goal of this project is to automate the detection of pain, as to generate automatic evidence of pain or not. 
 
-\dummytxtc\dummytxtb
+During anesthesia application, studies have shown that it is feasible to detect pain facial expressions on the fetus. Given that this process depends on an experienced observant caregiver, it is time-consuming and is subject to the observant's bias, it would be great if we could use computational help to find expressions of pain. 
 
-\subsection{Mais uma sub-seção}
+Such a system would be helpful in the generation of evidence that a fetus does experience pain. As the fetus behaves differently trough the manifestation of facial expressions on the presence of pain or not. Our ability to recognize pain is the subject of study for a long time with some studies going back even to Charles Darwin.
 
-\dummytxta\dummytxtc
+In this work, we have developed a system that given an image collected from a 4D ultrasound machine, can detect if it is in the presence of pain our not. 
 
-\subsubsection{Descendo mais um nível}
+This system, if integrated into the ultrasound machine itself, would allow the monitoring of the efficacy of anesthetic procedures, much like it is done on adults. If the surgeon detects that after the first anesthesia the fetus still shows signs of pain, he will be able to make better decisions and decide if another one is necessary.
 
-\dummytxtb\dummytxta
+This work would also open the way to explore the evolution of pain-related facial responses during fetal development. From the 20th gestational week onwards, fetuses have brain structures capable of showing signs of pain. This model would, therefore, allow for continuous monitoring of pain across time.
 
-
-\chapter{Desenvolvimento}
-
-\dummytxtb\dummytxta\dummytxtc
-
-\begin{figure}[t]
-    \centering
-    \includegraphics{img/exemplo}
-    \caption{Uma figura de exemplo.}
-    \label{fig:exemplo}
-\end{figure}
-
-\dummytxtb\dummytxta\dummytxtc\dummytxtb
-
-\begin{table}[t]
-    \caption{Uma tabela de exemplo.}
-    {\centering
-    \begin{tabular}{lcr} \toprule
-    \emph{Left-aligned} & \emph{Centered} & \emph{Right-aligned} \\ \midrule
-    Lorem ipsum & dolor sit & amet \\
-    consectetur adipisicing & elit, sed do eiusmod & tempor \\
-    incididunt ut & labore et dolore & magna aliqua. \\ \bottomrule
-    \end{tabular}\par
-    }
-\end{table}
-
+In summary, our main contribuitions are:
 
 % Aqui vem a parte da bibliografia: use o comando \ppgccbibliography indicando
 % apenas o nome do arquivo .bib (sem a extensão).
 \ppgccbibliography{bibfile}
-
-
-% Este comando encapsula o conjunto de apêndices. A sua função é fazer com que
-% a numeração dos apêndices seja feita com letras maiúsculas (A, B, C, etc.) e
-% a palavra "Apêndice" anteceda as entradas no Sumário.
-\begin{appendices}
-
-% Para cada apêndice, um \chapter
-\chapter{Um apêndice}
-
-\dummytxta
-\dummytxtb
-\dummytxtc
-\dummytxta
-\dummytxtb
-
-\chapter{Outro apêndice}
-
-\dummytxta
-\dummytxtb
-\dummytxtc
-\dummytxta
-\dummytxtb
-
-% Fim dos apêndices (usar apenas depois do último apêndice)
-\end{appendices}
-
-
-% Este comando encapsula o conjunto de anexos. A sua função é fazer com que a
-% numeração dos anexos seja feita com letras maiúsculas (A, B, C, etc.) e a
-% palavra "Anexo" anteceda as entradas no Sumário.
-\begin{attachments}
-
-% Para cada anexo, um \chapter
-\chapter{Um anexo}
-
-\dummytxta
-\dummytxtb
-\dummytxtc
-\dummytxta
-\dummytxtb
-
-\chapter{Outro anexo}
-
-\dummytxta
-\dummytxtb
-
-% Fim dos anexos (usar apenas depois do último anexo)
-\end{attachments}
-
 
 \end{document}

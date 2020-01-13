@@ -46,7 +46,7 @@
 
 The International Association for the Study of Pain (IASP) defines pain as "an unpleasant sensory and emotional experience associated with actual or potential tissue damage, or described in terms of such damage." \citep{merskey1994classification} The definition accompanying notes also establishes that "the inability to communicate verbally does not negate the possibility that an individual is experiencing pain and is in need of appropriate pain-relieving treatment."
 
-As infants are unable to self-report pain, its diagnosis is much harder when compared to adults. Thus, specialists have used non-verbal responses like facial expressions, crying sounds, and movements, alongside physiological measurements for better pain assessment. These methods have been tested and found to be reliable indicators of pain. Several observational scales have been published and verified based on them.
+As newborns are unable to self-report pain, its diagnosis is much harder when compared to adults. Thus, specialists have used non-verbal responses like facial expressions, crying sounds, and movements, alongside physiological measurements for better pain assessment. These methods have been tested and found to be reliable indicators of pain. Several observational scales have been published and verified based on them.
 
 In the case of fetuses, as we have even more restrict methods of pain assessment, diagnosis becomes more difficult. Fortunately, some recent studies have shown the feasibility of applying these pain scales on fetus through the use of 4D ultrasound images \citep{bernardes2018feasibility}. This process allowed the monitoring of facial expressions on fetus while they were exposed to different stimuli.
 
@@ -79,10 +79,9 @@ This work would also open the way to explore the evolution of pain-related facia
 In summary, our main contribuitions are:
 
 \begin{itemize}
-    \item We have created a systematic procedure for collecting and processing images of a fetus from videos of 4D ultrasound machines. This procedure is also capable of detecting their facial landmarks.
-    \item From this procedure, we have created a labeled database consisting of 230 images of fetuses with facial expressions manifesting pain and in rest conditions. To the best of our knowledge no such database exists.
-    \item We have developed a learning model capable of detecting the presence of pain indicators from these images. We believe this is good evidence towards an unbiased pain assessment.
-    \item We have shown that transfer learning with a network pre-trained with the face recognition task transfers well to fetus images even though the domain is quite different. Our model achieved an area under the ROC curve of 0.XX on the classification task between pain and non-pain. 
+    \item We have created a systematic procedure for collecting and processing images of a fetus from videos of 4D ultrasound machines. This procedure is also capable of detecting their facial landmarks. From this procedure, we have created a labeled database consisting of 230 images of 15 fetuses with facial expressions manifesting pain and in rest conditions. To the best of our knowledge no such database exists.
+    \item We have developed a learning model capable of detecting the presence of pain indicators from images. We believe this is good evidence towards an unbiased pain assessment.
+    \item We have shown that transfer learning with a network pre-trained with the face recognition task transfers well to fetus images even though the domain is quite different. We have achieved an area under the ROC curve of 0.XX on the classification task between pain and non-pain.
 \end{itemize}
 
 \section{Organization}
@@ -90,8 +89,11 @@ In summary, our main contribuitions are:
 The rest of this dissertation is structured as follows. First, Chapter 2 discusses related work and Chapter 3 describes our methodology, including the image collection process, the learning model and the validation process. Then, Chapter 4 describes our experimental results and Chapter 5 concludes the dissertation.
 
 \chapter{Related Work}
+
 \chapter{Methodology}
+
 \chapter{Experimental Results}
+
 \chapter{Conclusions and Future Work}
 
 % Aqui vem a parte da bibliografia: use o comando \ppgccbibliography indicando

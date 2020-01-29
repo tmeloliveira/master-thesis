@@ -1,3 +1,5 @@
+\chapter{Methodology}
+
 As there are no publically available datasets with images of pain assessment in a fetus, our work was developed in conjunction with the group of studies of Fetal Pain Assessment from the University of São Paulo (USP), which studies pain assessment in fetuses and was responsible for collecting the videos.
 
 Videos were recorded in three groups. The first one for control purposes was just with fetuses in resting conditions. The second one was of fetuses that had to go through an intra-uterine surgery, and thus needed fetal anesthesia, in this case, the exact moment when the needle was applied was recorded. This recorded the reaction of the fetus in pain, and in some cases even crying. Notice that these videos also had images (1) a baseline period defined as the least 30 seconds before the anesthesia puncture and (2) the 45 seconds immediately after the puncture. Finally, the third group of videos was recorded while the fetus was exposed to the sound of a horn, this was meant to cause distress but it should be a control group rather different from pain which we expected to differentiate. Videos were recorded from the 4D Ultrasound machine of the model Voluson E8 by GE. 
@@ -20,7 +22,7 @@ With this process, we were able to filter out our dataset of images from 268 to 
 
 With the position of the facial landmarks, another process was to crop the images around the face of the fetus. This cropping is done just by adding padding to the places where the image was. This process is also available through the MTCNN library, and we can also add face alignment. This way, we avoid the blurred surrounding around the fetus which contains fragments of the womb and other non-distinguishable parts. 
 
-At this point, manual inspection was needed in other to separate the images back into the three groups. With the resting images, it was easy as all the frames were from resting positions. But with the ones from anesthesia and from the horn we had to split the data between before the stimulus and after it. This was not a though process as we knew exactly when the stimuli were applied and a clear difference in the facial expression could be noted. After this step, we ended up with 117 images which had a clear face on it. An example of cropping can be seen below
+At this point, manual inspection was needed in other to separate the images back into the three groups. With the resting images, it was easy as all the frames were from resting positions. But with the ones from anesthesia and from the horn we had to split the data between before the stimulus and after it. This was not a though process as we knew exactly when the stimuli were applied and a clear difference in the facial expression could be noted. After this step, we ended up with 117 images which had a clear face on it. An example of cropping can be seen on Figure \ref{fig:cropping}.
 
 \begin{figure}[h!tp]
     \centering
@@ -43,7 +45,7 @@ There is a range of possibilities for using data augmentation, the ones we've ch
 * Lightning, which consists of changing the brightness and the contrast of the image
 * Warping, which consists of warping the image. 
 
-All of these methods have a probability of being applied and can be used in combination with each other. Thus for each image, given the probability, a combination of these techniques would be applied. Some examples of different data augmentation with the same image are shown below:
+All of these methods have a probability of being applied and can be used in combination with each other. Thus for each image, given the probability, a combination of these techniques would be applied. Some examples of different data augmentation with the same image are shown on Figure \ref{fig:data_augmentation}.
 
 \begin{figure}[h!tp]
     \centering

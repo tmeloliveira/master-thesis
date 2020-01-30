@@ -1,48 +1,42 @@
 \chapter{Related Work}
 
-In this chapter we present the most relevant research results that guided our work, exposing the methodologies used by the authors and how they correlate to ours. Research on automatic pain assessment has a great intersection between the medical field and applied machine learning both for fetuses and infants \citep{ZamzmiPGKSA16, Bellieni2012}. Thus, we start by exploring the causes of pain in infants and fetuses, its main indicators, the available pain scales and automatic methods to assess it. 
+In this chapter we present the most relevant research results that guided our work, exposing the methodologies used by the authors and how they correlate to ours. Research on automatic pain assessment has a great intersection between the medical field and applied machine learning both for fetuses and infants \citep{ZamzmiPGKSA16, Bellieni2012}. Thus, we start by exploring the signs of pain in infants and fetuses, its main indicators, the available pain scales and automatic methods to assess it. 
 
 Next, we present an overview of deep learning methods that form the basis of our methodology. We also explain how our work is different from the mentioned ones since we explore automatic pain assessment from a novel aspect with fetuses.
 
 \section{Pain}
 
-Pain is a universal form of distress present in humans and some other animals. Acute and chronic pain are very common in the population and constitute widespread public health problems \cite{Goldberg2011}. Its prolonged presence could cause many adverse consequences, including psychological effects. This is especially true in the case of fetuses and infants.
+Pain is a universal form of distress present in humans and some other animals. Acute and chronic pain are very common in the population and constitute widespread public health problems \citep{Goldberg2011}. Its prolonged presence could cause many adverse consequences, including psychological effects. This is especially true in the case of fetuses and infants.
 
 The study of neonatal pain seems to have begun as early as the 1870s when Dr. Flechsig proposed it was unlikely that neonates could feel pain because their neuronal myelination was not complete \citep{cope1998neonatal}. Charles Darwin's book written a couple of years later agreed with this view, as he wrote that "an infant's pain expressions were related to reflexes only" \citep{darwin1872expression}. Even as late as the 1950s some pediatric surgeries were performed without anesthesia and analgesia \citep{cope1998neonatal}.
 
-It was only in the early 80's that the first fetal surgery was performed by Dr. Michael Harrison \cite{Harrison1982}. The fetus to be operated had a blockage in the urinary tract that caused the kidney to harmfully extend, which is known as congenital hydronephrosis. To correct this issue a vesicostomy was conducted by placing a catheter in the fetus to allow the urine to be released normally.
+It was only in the early 1980s that the first fetal surgery was performed by Dr. Michael Harrison \citep{Harrison1982}. The fetus to be operated had a blockage in the urinary tract that caused the kidney to dangerously extend, which is a condition known as congenital hydronephrosis. To correct this issue a vesicostomy was conducted by placing a catheter in the fetus to allow the urine to be released normally.
 
-Further progress has been made in the years since this first operation. Advances in imaging technology and in surgery techniques allowed additional defects to be treated and for less invasive forms of fetal surgical intervention.
+Further progress has been made in the years since this first operation. Advances in imaging technology and in surgery techniques allowed additional defects to be treated and for less invasive forms of fetal surgical intervention to be performed.
 
-Even though the cases in which fetal surgery is necessary are relatively rare, it has become the standard form of intervention for some abnormalities like myelomeningocele as shown by the Manage­ment of Myelomeningocele Study \citep{Adzick2011}. The study compared outcomes of in utero repair (before birth) with standard postnatal repair (after birth). The conclusion was that prenatal repair may result in better neurologic function than repair deferred until after delivery.
+Even though the cases in which fetal surgery is necessary are relatively rare, it has become the standard form of intervention in some abnormalities like myelomeningocele as shown by the Management of Myelomeningocele Trial \citep{Adzick2011}. The study compared outcomes of in utero repair (before birth) with standard postnatal repair (after birth). The conclusion was that prenatal repair may result in better neurologic function than repair deferred until after delivery.
 
-
-
-
-
-% -------------------------------------------------------------
-% FAZER CONEXÃO COM O SURGIMENTO DO ESTUDO DE DOR EM FETOS AQUI
-% -------------------------------------------------------------
+As shown by \cite{Devoto2017}, fetal pain is among the main concerns of anaesthesiologists during fetal surgery for myelomeningocele, thus pain assessment is of fundamental help in those risky procedures. 
 
 \subsection{Pain Indicators}
 
 Fetuses and infants can produce different signals of pain which can be decoded to both identify its presence and to measure its level. These signals come from a variety of sources such as facial expressions, crying sounds, body movements, physiological indicators, and biological markers \citep{Bellieni2012}. 
 
-Even though we have this many indicators, pain identification is a challenging task as we have the manifestation of the same indicators present in similar feelings such as anger, hunger or stress. To address this issue, the recommendation is that these indicators should be used in combination with each other because most of the time their presence alone is not sufficient. 
+Even though we have this many indicators, pain identification is a challenging task as we have the manifestation of the same indicators present in similar feelings such as anger, hunger or stress. To address this issue, the recommendation is that these indicators should be used in combination with each other \citep{Bellieni2012} because most of the time their presence alone is not sufficient. 
 
-Crying, for instance, can also be generated by hunger or anger, therefore it can not be used as a sole indicator of pain. In the past, it was used to believe that different emotions resulted in different types of crying, but this theory has been refuted as it was later discovered that what causes the difference is not the cause of distress, but rather its intensity. 
+Crying, for instance, can also be generated by hunger or anger, therefore it can not be used as a sole indicator of pain. In the past, it was believed that different emotions resulted in different types of crying, but this theory has been refuted as it was later discovered that what causes the difference is not the cause of distress, but rather its intensity. 
 
-Some pain scales which combine features of crying and other indicators do exist, and a fetus can show a homolog of crying \citep{Gingras2005}. So this could further be explored. \cite{abs-1909-02543}
+Thus, some pain scales combine features of crying with other indicators for pain assessment. Fetuses have been shown to express a homolog of crying \citep{Gingras2005}, which can also be further explored for automatic pain assessment as shown by \cite{abs-1909-02543}. 
 
 % -------------------------------------------------------------
 % VERIFICAR O PAPER DE CRYING SOUNDS E SUAS REFERÊNCIAS
 % -------------------------------------------------------------
 
-Physiological indicators have the limitation that they are subject to variations due to underlying illness \citep{sweet1998physiological}.
+Physiological indicators, on the other hand, have the limitation that they are subject to variations due to underlying illness \citep{sweet1998physiological}. Body movements have also been pointed out to be indicators of pain, as fetuses already present withdrawn reflexes during stressful procedures \citep{Zimmermann1991}, but care must be taken as they can also be misleading as the movements may be caused by other factors.
 
-Body movements have also been pointed out to be indicators of pain, as even fetuses already present withdrawn reflexes during stressful procedures \citep{Zimmermann1991}. On the other hand, they can also be misleading as the movements may be caused by other factors. 
+Studies have also shown that biological markers like stress hormones (cortisol, adrenaline, and beta-endorphins) are increased in concentration in the blood in the presence of pain \citep{giannakoulopoulos1994fetal}. But the problem of these indicators is they depend on results from laboratory tests, which makes it unfeasible to use during clinal trials.
 
-Many studies have shown that biological markers like stress hormones (cortisol, adrenaline, and beta-endorphins) are increased in concentration in the blood in the presence of pain \citep{giannakoulopoulos1994fetal}. But the problem of these indicators is they depend on results from laboratory tests, which makes it unfeasible to use during clinal trials.
+One of the most important indicators of pain, not only in adults but also in infants and fetuses are facial expressions, which implies their common use in pain scales. Several facial movements are usually tracked, such as brow bulge, eye squeeze, nasolabial furrow, and open mouth. The assessment of the presence of these manifestations, due to the inability of the fetuses or neonates to communicate, is done by an observant, which follows some pain scales to identify its presence and quantify its intensity. 
 
 % -------------------------------------------------------------
 % FALAR DE FACIAL EXPRESSIONS COMO INDICADORES
@@ -64,18 +58,18 @@ But the scales also have some limitations, as they are highly dependent on the o
 
 \section{Automatic Pain Assessment}
 
-The first work attempting to automatically assess pain in newborns have emerged in 2006  with the development of the iCOPE database. At the time neural networks were not as popular and advanced as they are today. The first attempts made use of traditional techniques such as PCA, LDA, and SVM. Still, the experimental process they have developed is somewhat similar to what is used today. 
+The first work attempting to automatically assess pain in newborns have emerged in 2004 with the development of the iCOPE database \citep{Brahnam2006}. At the time neural networks were not as popular and advanced as they are today. The first attempts made use of traditional techniques such as PCA, LDA, and SVM. Still, the results were satisfactory and the experimental process they developed is similar to what is used today. 
 
-Their database consisted of 216 images from 26 infants being 13 girls and 13 boys. The images were collected in 5 different conditions and later divided into groups for classification non-pain
-
-% , which consisted of [...] and 
-
-Their first studies considered the best scenario where the system would be able to train on a fetus and evaluate that same fetus later on. But as permanence in the baby nursery is quite short, they also had to consider the case where this was not possible. Thus the validation process had to consider this other scenario where the classifier had to be trained beforehand and evaluated on images of a new baby which was not in the dataset distribution previously.
-
-Given the number of subjects is small, it was feasible to use a leave one (subject) out validation process. Which consisted of using 25 for training and 1 for test and so forth.
+Their database consisted of 216 images from 26 infants being 13 girls and 13 boys. The images were collected in 5 different conditions, a resting baseline, bodily disturbance, an air stimulus on the nose, friction on the external surface of the heel, and the pain of a heel stick. The idea behind using this number of conditions was to make the set of images representative, but also challenging enough. The five conditions were later divided into two groups for classification: pain and non-pain.
 
 Our work as adopted a similar approach of not having only images of rest and pain, but we've also added a third set of images from other stimuli of a horn, which had the intention of causing discomfort, but no pain. 
 
+Their first studies considered the best scenario where the system would be able to train on a fetus and evaluate that same fetus later on. But as permanence in the baby nursery is quite short, they also had to consider the case where this was not possible. Thus the validation process had to consider the other scenario where the classifier had to be trained beforehand and evaluated on images of a new baby which was not in the dataset distribution previously.
+
+Given the number of subjects is small, it was feasible to use a leave one (subject) out validation process. Which consisted of using 25 for training and 1 for test and so forth. We have adopted the same approach in our work.
+
 \section{Transfer Learning for Pain Assessment}
 
-Transfer learning is often used for domain adaptation. The networks had the capability of learning fundamental basic features from the data such as corners, edges in the first layers, they then learn other things in the later layers. But overall, with fine-tuning the domain adaptation is possible.
+Transfer learning is often used for domain adaptation. The networks had the capability of learning fundamental basic features from the data such as corners, edges in the first layers, and then learn other problem-specific features in the final layers. 
+
+% But overall, with fine-tuning the domain adaptation is possible.

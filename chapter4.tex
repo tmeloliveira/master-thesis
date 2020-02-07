@@ -1,16 +1,28 @@
 \chapter{Deep Learning Models for Fetal Pain Assessment}
 
+In this chapter we present some background topics recommended for better understanding our work and later explain the methodology that was used to conduct our experiments.
+
 \section{Background}
 
-\subsection{Data Augmentation}
+Traditional machine learning algorithms require hand-engineered features, like filters and descriptors, to be used as an input for classification algorithms. Neural networks, on the other hand, have the advantage of being able to learn these features directly from the data, and often achieve better results. 
 
-\subsection{VGG}
+Additionally, the recent advances in Deep Neural Networks have taken these feature extraction capabilities to a new level, and are responsible for state of the art results in a wide range of applications.
+
+\subsection{Convolutional Neural Networks}
+
+Convolutional Neural Networks (CNNs) are similar to traditional Neural Networks. They both have an input layer which receives the data, followed by hidden layers with numerous neurons with weights and biases capable of learning the characteristics of the data, and an output layer at the end which classifies the data. The main difference is that CNNs assume the input has some spatial relationship, which is a pattern present in images, so it has methods of capturing these features and can make better predictions than if we used traditional networks which would have just had flattened out the pixels into input vectors.
+
+To extract these characteristics the network uses two main operations: convolution and pooling. These series of transformations reduce the dimensionality of the data and makes it possible to process images of high resolution possible. 
 
 \subsection{Transfer Learning}
 
+\subsection{Data Augmentation}
+
+\subsection{Visual Explanations}
+
 \section{Methodology}
 
-\section{Image Sampling}
+\subsection{Image Sampling}
 
 It is common to have a small number of data to work with as this is a very hard data to collect. Only a small percentage of pregnancies require intra-uterus intervention prior to birth, and thus fetal anesthesia is a relatively rare procedure. Because of that, it is common for studies in the filed to also have a small N, like these ones cite{}.
 
@@ -33,7 +45,7 @@ At this point, manual inspection was needed in other to separate the images back
     \label{fig:cropping}
 \end{figure}
 
-\section{Data Augmentation}
+\subsection{Data Augmentation}
 
 Even though we had increased the size of the dataset by turning the videos into images, it was still considered a small dataset for deep learning models. To further augment our chances of succeeding, we have applied the use of data augmentation techniques to increase the variability of our data. The effectiveness of such a technique has been demonstrated by \cite{abs-1712-04621} and is widely used in the field.
 
@@ -55,7 +67,6 @@ All of these methods have a probability of being applied and can be used in comb
 \end{figure}
 
 To further experiment with this process, we have compared 3 sets of intensity in the changes. A smooth, which does more subtle changes, a medium one, which intensifies a little bit and a more aggressive one, which heavily transforms the images.  
-
 \subsection{Network Architecture and Transfer Learning}
 
 The network used was VGG with a pre-trained model on VGG Face, developed by \cite{ParkhiVZ15}.

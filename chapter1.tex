@@ -38,13 +38,15 @@ As fetuses have been shown to respond to stimuli like anesthesia with facial exp
 
 We have developed a process capable of detecting the presence of pain from images collected from 4D ultrasound machines. This system, if integrated into the ultrasound machine itself, would have many benefits, such as the monitoring of anesthetic procedures efficacy, much like what it is done in adults. As an example, if the surgeon detects that after the first anesthesia, the fetus still shows signs of pain, he will be able to make better decisions and apply another one if necessary.
 
-This work would also open the way to explore the evolution of pain-related facial responses during fetal development. From the 20th gestational week onwards, fetuses have brain structures capable of showing signs of pain. This model would, therefore, allow for continuous monitoring of pain across time.
+This work would also open the way to explore the evolution of pain-related facial responses during fetal development. After the 20th gestational week, fetuses have brain structures capable of showing signs of pain. This model would, therefore, allow for continuous monitoring of pain across time.
 
-In summary, our main contributions are:
+In summary, our man contributions are:
 
 \begin{itemize}
     \item We have created a systematic procedure for collecting and processing images of a fetus from videos of 4D ultrasound machines. This procedure is also capable of detecting their facial landmarks. From this procedure, we have created a labeled database consisting of 230 images of 15 fetuses with facial expressions manifesting pain and in rest conditions. To the best of our knowledge, no such database exists.
+    
     \item We have developed a learning model capable of detecting the presence of pain indicators from images. We believe this is good evidence towards an unbiased pain assessment process. This novel approach has the potential to improve the pain assessment process significantly on fetuses. It would facilitate pain management by the doctors and caregivers and could even be the first indicator of discomfort or distress, leading to earlier intervention if necessary.
+    
     \item We have shown that transfer learning with a network pre-trained with the face recognition task transfers well to fetus images even though the domain is quite different. We have achieved an area under the ROC curve of 0.69 on the classification task between pain and non-pain.
 \end{itemize}
 

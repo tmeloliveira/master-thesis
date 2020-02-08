@@ -69,11 +69,13 @@ Even though we had increased the size of the dataset by turning the videos into 
 
 There is a range of possibilities for using data augmentation, the ones we've chosen are:
 
-* Horizontal flip, which consists of mirroring the image horizontally. 
-* Rotation, which consists in applying small rotations to the image.
-* Zoom, which consists of zooming in the image.
-* Lightning, which consists of changing the brightness and the contrast of the image.
-* Warping, which consists of adding distortions to the image. 
+\begin{itemize}
+    \item Horizontal flip, which consists of mirroring the image horizontally. 
+    \item Rotation, which consists in applying small rotations to the image.
+    \item Zoom, which consists of zooming in the image.
+    \item Lightning, which consists of changing the brightness and the contrast of the image.
+    \item Warping, which consists of adding distortions to the image. 
+\end{itemize}
 
 All of these methods have a probability of being applied and can be used in combination with each other. Thus for each image, given the probability, a combination of these techniques would be applied. Some examples of these different combinantions of data augmentation with the same image are shown on Figure \ref{fig:data_augmentation}.
 

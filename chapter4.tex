@@ -32,6 +32,16 @@ Another reason for using transfer learning comes from the cases where we do not 
 
 \subsection{Data Augmentation}
 
+Another solution that handles small datasets is data augmentation. It consists of applying transformations, such as geometric and color augmentations, for generating alternative images that derive from the original dataset. Hence, this technique increases the amount of data available for input. 
+
+For each input image in the dataset, a new image is generated that can be zoomed, shifted, mirrored, rotated, distorted, or have changes in its color, brightness, contrast.
+
+Having a large dataset is crucial for the performance of the deep learning models, but instead of starting with a large dataset of images, a more common scenario is to have a small amount of data available from the specific domain of research. This usually happens due to the high cost of collecting data, be it in terms of human labor or monetary resources. As mentioned in the previous section, this is mainly the case in the medical field. 
+
+Another problem of small datasets is that problems trained on them are often over-fitted to the specific data available, which means they lack the power of generalization, as the dataset is not representative of the real world. 
+
+In these cases, as discussed by \cite{abs-1712-04621}, data augmentation can act as a regularizer for preventing overfitting and also improve performance in imbalanced class problems.
+
 \subsection{Visual Explanations}
 
 \section{Methodology}

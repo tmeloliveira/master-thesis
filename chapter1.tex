@@ -2,11 +2,11 @@
 
 The International Association for the Study of Pain (IASP) defines pain as "an unpleasant sensory and emotional experience associated with actual or potential tissue damage, or described in terms of such damage." \citep{merskey1994classification} The definition accompanying notes also establishes that "the inability to communicate verbally does not negate the possibility that an individual is experiencing pain and is in need of appropriate pain-relieving treatment."
 
-As newborns are unable to self-report pain, its diagnosis is much harder when compared to adults. Thus, specialists have used non-verbal responses like facial expressions, crying sounds, and movements, alongside physiological measurements for better pain assessment. These methods have been tested and found to be reliable indicators of pain. Several observational scales have been published and verified based on them, such as the NFCS (Neonatal Facial Coding System) \citep{Grunau1998}, and the NIPS (Neonatal Infant Pain Scale) \citep{HudsonBarr2002}.
+As newborns are unable to self-report pain, its diagnosis is much harder when compared to adults. Thus, specialists have used non-verbal responses like facial expressions, crying sounds, and movements, alongside physiological measurements for better pain assessment. These methods have been tested and found to be reliable indicators of pain. Several observational scales have been published and verified based on them, such as the Neonatal Facial Coding System (NFCS) \citep{Grunau1998}, and the Neonatal Infant Pain Scale (NIPS) \citep{HudsonBarr2002}.
 
 In the case of fetuses, as we have even more restrict methods of pain assessment, diagnosis becomes more difficult. Fortunately, some recent studies have shown the feasibility of applying these pain scales on a fetus through the use of 4-D (four-dimensional) ultrasound images \citep{bernardes2018feasibility}. This process allowed the monitoring of facial expressions on a fetus while they were exposed to noxious stimuli like an anesthetic puncture.
 
-With recent advances in Artificial Intelligence (AI), the capacity of machines to detect patterns in images has largely improved, which consequently allowed for its application in innumerous scenarios. Hence, these techniques could also be beneficial for pain assessment by helping to match the patterns of facial expressions that are common indicators of pain.
+With recent advances in Artificial Intelligence (AI), the capacity of machines to detect patterns in images has largely improved, which consequently allowed for its application in innumerous scenarios. Hence, these techniques could also be useful for pain assessment by helping to match the patterns of facial expressions that are common indicators of pain.
 
 \section{Motivation}
 
@@ -18,32 +18,26 @@ Another critical topic is abortion. In the United States, a 2016 law from the st
 
 This topic involves much ethical debate, as the exact week when a fetus starts experiencing pain is not well defined, and at the same time, abortion is only legal until a particular week \citep{Derbyshire2006}. So discussion arrises not only if the fetus can or can not experience pain, but also as it may be the case that fetuses can only experience pain after weeks in which abortion is no longer possible.
 
-% -------------------------------------------------------------
-% FALAR SOBRE HIPÓTESE MAIS CAUTELOSA E CONSERVADORA
-% -------------------------------------------------------------
+Evidence on the presence of pain in this scenario would be a significant contribution in such a delicate situation and may assist the decision by the doctors and the mother.
 
-Evidence on the presence of pain in this scenario would be a significant contribution in such a delicate situation and may help the decision by the doctors and the mother.
-
-For both scenarios, the current standard for assessing pain in infants and fetuses relies on caregivers' observation of specific behaviors such as facial expression. However, these observations are subject to bias and can be affected by several factors, such as identity, background, culture, and gender, which may lead to inconsistent assessment and treatment of pain. An impartial perspective during the pain assessment process could also bring a more realistic and deterministic view on the subject.
-
-Given that this process depends on an experienced observant caregiver, it is time-consuming and is subject to the observant's bias, computational help would be of great use in finding evidence of pain and in effectively managing it.
+For both scenarios, the current standard for assessing pain in infants and fetuses relies on caregivers' observation of specific behaviors such as facial expression. However, these observations are subject to bias and can be affected by several factors, such as identity, background, culture, and gender, which may lead to inconsistent assessment and treatment of pain. An impartial perspective during the pain assessment process could bring a more realistic and deterministic view on the subject. Hence, computational help would be of great use in finding evidence of pain and in effectively managing it.
 
 \section{Thesis Statement}
 
-Our work has developed a learning model capable of automatically detecting the presence of pain in fetuses through the evaluation of their facial expressions in images collected from 4-D ultrasound machines. We have used modern deep learning techniques like transfer learning and data augmentation. Our results demonstrated the effectiveness of applying such methods in the fetal domain and, to the best of our knowledge, is the first work attempting to do so.
+Our work developed a learning model capable of automatically detecting the presence of pain in fetuses through the evaluation of their facial expressions in images collected from 4-D ultrasound machines. We have used modern deep learning techniques like transfer learning and data augmentation. Our results demonstrated the effectiveness of applying such methods in the fetal domain and, to the best of our knowledge, is the first work attempting to do so.
 
 \section{Contributions}
 
 As fetuses have been shown to respond to stimuli like anesthesia with facial expressions indicating pain, the goal of this work is to help automate the pain assessment process and to generate unbiased evidence of pain. 
 
-We have developed a process capable of detecting the presence of pain from images collected from 4D ultrasound machines. This system, if integrated into the ultrasound machine itself, would have many benefits, such as the monitoring of anesthetic procedures efficacy, much like what it is done in adults. As an example, if the surgeon detects that after the first anesthesia, the fetus still shows signs of pain, he will be able to make better decisions and apply another one if necessary.
+We have developed a process capable of detecting the presence of pain from images collected from 4-D ultrasound machines. This system, if integrated into the ultrasound machine itself, would have many benefits, such as the monitoring of anesthetic procedures efficacy, much like what it is done in adults. As an example, if the surgeon detects that after the first anesthesia, the fetus still shows signs of pain, he will be able to make better decisions and apply another one if necessary.
 
-This work would also open the way to explore the evolution of pain-related facial responses during fetal development. After the 20th gestational week, fetuses have brain structures capable of showing signs of pain. This model would, therefore, allow for continuous monitoring of pain across time.
+This work would also open the way to explore the evolution of pain-related facial responses during fetal development. After the 20th gestational week, fetuses start to develop brain structures capable of showing signs of pain. This model would, therefore, allow for continuous monitoring of pain across time.
 
 In summary, our man contributions are:
 
 \begin{itemize}
-    \item We have created a systematic procedure for collecting and processing images of a fetus from videos of 4D ultrasound machines. This procedure is also capable of detecting their facial landmarks. From this procedure, we have created a labeled database consisting of 230 images of 15 fetuses with facial expressions manifesting pain and in rest conditions. To the best of our knowledge, no such database exists.
+    \item We have created a systematic procedure for collecting and processing images of a fetus from videos of 4-D ultrasound machines. This procedure is also capable of detecting their facial landmarks. From this procedure, we have created a labeled database consisting of 230 images of 15 fetuses with facial expressions while in manifestation of pain and in rest conditions. To the best of our knowledge, no such database existed.
     
     \item We have developed a learning model capable of detecting the presence of pain indicators from images. We believe this is good evidence towards an unbiased pain assessment process. This novel approach has the potential to improve the pain assessment process significantly on fetuses. It would facilitate pain management by the doctors and caregivers and could even be the first indicator of discomfort or distress, leading to earlier intervention if necessary.
     
@@ -52,4 +46,4 @@ In summary, our man contributions are:
 
 \section{Organization}
 
-The rest of this dissertation is structured as follows. First, Chapter 2 discusses related work. Chapter 3 describes our dataset, as well as the image collection process. We start Chapter 4 by presenting some background work and continue with our methodology, including our learning model and the validation process. Then, Chapter 5 describes our experimental results, and Chapter 6 concludes the dissertation.
+The rest of this dissertation is structured as follows. First, Chapter 2 discusses related work. Chapter 3 describes our dataset, as well as the image collection process. We start Chapter 4 by presenting some background work and continue with our methodology, including our learning model. Then, Chapter 5 describes our validation process and our experimental results. Chapter 6 concludes the dissertation and present future work possibilities.

@@ -4,35 +4,31 @@ In this chapter, we present some background topics recommended for a better unde
 
 \section{Background}
 
-When dealing with image classification task, traditional machine learning algorithms require hand-engineered features, like filters and descriptors, to be used as an input for algorithms. The algorithms were then trained to find patterns in these features capable of distinguishing between different classes.
+In the task of image classification, traditional machine learning algorithms required hand-engineered features, like filters and descriptors, which were meant to extract information from the images to be used as an input for algorithms. These algorithms would then be trained to find patterns in these features capable of distinguishing between different classes.
 
 Neural networks, on the other hand, have the advantage of being able to learn these features directly from the data, which makes the process of feature engineering a lot simpler and achieves better results in most cases. Furthermore, the recent advances in Deep Neural Networks have taken these capabilities to a new level. They not only win most of the competitions in the field but also achieve state of the art results in a wide range of real applications. One type of network that was responsible for these results is Convolutional Neural Networks (CNNs).
 
 \subsection{Convolutional Neural Networks}
 
-Convolutional Neural Networks are similar to traditional Neural Networks. They both have an input layer which receives the data, followed by hidden layers with numerous neurons with weights and biases capable of learning the characteristics of the data, and an output layer at the end which makes the classification. The main difference is that CNNs assume the input has some spatial relationship, which is a pattern present in images, so knowledge of where pixels are located in reference to each other is preserved. CNNs are then capable of extracting these features and capture patterns that would not have been possible if we used traditional networks. To extract these features, the networks use two primary operations: convolution and pooling.
+Convolutional Neural Networks are similar to traditional Neural Networks. They both have an input layer which receives the data, followed by hidden layers with numerous neurons with weights and biases capable of learning the characteristics of the data, and an output layer at the end which is responsible for classification. The main difference is that CNNs assume the input has some spatial relationship, which is a pattern present in images. Thus, knowledge of where pixels are located in reference to each other is preserved. CNNs are capable of extracting and capturing patterns from the images that would not have been possible if we used traditional networks. To extract these features, the networks uses two primary operations: convolution and pooling.
 
-Convolutions are mathematical operations that act as learnable filters to capture patterns in the images. These filters usually are small in terms of dimension, sometimes 3x3 or 5x5 matrices, also called Kernels. Each one of them convolves across the width and height of the input image and compute dot products that produce an activation map of the image. These activation maps, once learned, will be able to detect features in the images, such as edges, corners, or color shifts. 
+Convolutions are mathematical operations that act as learnable filters (also called kernels) to capture patterns in the images. These filters are usually small in terms of dimension, tipically 3x3 or 5x5 matrices. Each one of them convolves across the width and height of the input image and compute dot products with the pixels of the image, producing an activation map out of it. These activation maps, once learned, are able to detect features in the images, such as edges, corners, or color shifts. 
 
 Pooling is another mathematical operation responsible for reducing the spatial size of the convolved feature. These series of transformations reduce the dimensionality of the data and makes it possible to process images of high resolution. 
 
-As multiple convolutional and pooling layers are stacked, the network becomes able to detect more complex patterns that are composed of multiple inputs of different feature extractors in the first layers. \citep{} has demonstrated a good visualization of this process. 
+As multiple convolutional and pooling layers are stacked, the network becomes able to detect more complex patterns that are composed of multiple inputs of different feature extractors in the first layers. By turning this activation maps back into images, we are able to see what kinds of features they are detecting, as demonstrated by \citep{ZeilerF14}. 
 
 \subsection{Transfer Learning}
 
-Transfer Learning is a technique commonly used in machine learning where a learning model that was originally developed for one task is then reused on a second related task. It comes from the assumption that what has been learned in one setting can be used to improve optimization in another setting.
+Transfer Learning is a technique commonly used in machine learning when a learning model that was originally developed for one task is then reused on a second related task. It comes from the assumption that what has been learned in one setting can be used to improve optimization in another setting. The idea behind is inspired by human behavior, as sometimes we can use expertise in solving one problem to solve another one.
 
-The number of parameters present in a CNN is very high, which requires a large amount of training data to tune the network for making precise predictions. As an example, a dataset that is commonly used in the field, ImageNet, contains 1.2 million images and has 1000 categories to classify. Besides that, computational power to train a network in such a large dataset is also another obstacle.
+Another motivation behind using transfer learning comes from the high computational cost necessary to train large deep neural networks for image classification. Since the number of parameters present in a CNN is very high, it requires a large amount of training data to tune the network for making precise predictions.
 
-In this scenario, the solution of using transfer learning trough pre-trained networks arises as a solution. In this process, the weights and biases from a network trained in another task, are reused to train a new similar task.
+As an example, a commonly used dataset in the field, ImageNet \citep{DengDSLL009}, contains 1.2 million images and has 1000 categories to classify. Even with today's computational power, it still requires a significant amount of hours to be trained.
 
-Even though computing power increased a lot ever since CNNs were invented, they still require a significant amount of hours to be trained. So this is also a computationally wise approach.
+In this scenario, using transfer learning trough pre-trained networks arises as a solution. In this process, the weights and biases from a network trained in another task, are reused to train a new similar task.
 
-Thus, transfer learning is considered in both scenarios. First, when we do not have enough data, second, when we do not have enough computational power to train a network from scratch.
-
-The problem of having little annotated data is common in the medical field, and thus transfer learning is often used.
-
-The idea behind is inspired by human behavior, where sometimes we can use expertise in solving one problem to learn to solve another one.
+Another reason for using transfer learning comes from the cases where we do not have enough data to train a CNN. \cite{CelonaBB19} highlights this is especially true in the medical field, as the acquisition costs are elevated, and it also involves a complicated setup for photographing, which makes it very common to have little annotated data.
 
 \subsection{Data Augmentation}
 

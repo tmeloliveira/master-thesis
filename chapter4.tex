@@ -42,25 +42,31 @@ Another problem of small datasets is that problems trained on them are often ove
 
 In these cases, as discussed by \cite{abs-1712-04621}, data augmentation can act as a regularizer for preventing overfitting and also improve performance in imbalanced class problems.
 
-\subsection{Visual Explanations}
+% \subsection{Visual Explanations}
 
 \section{Methodology}
 
+Based on the techniques mentioned in the previous section, we have proposed a learning model for classifying between images of fetuses with facial expressions indicative of pain or not. In summary, our proposed pipeline consists of sampling the videos into frames, finding the images which contain a clear fetus face, and training a CNN in with the binary classification task of finding the presence of pain. In the following sections, we describe each of these steps.
+
 \subsection{Image Sampling}
 
-It is common to have a small number of data to work with as this is a very hard data to collect. Only a small percentage of pregnancies require intra-uterus intervention prior to birth, and thus fetal anesthesia is a relatively rare procedure. Because of that, it is common for studies in the filed to also have a small N, like these ones cite{}.
+It is common to have a small number of data to work within the medical field, given the inherent difficulty of collecting it. In our case, especially, only a small percentage of pregnancies require intra-uterus intervention before birth, and thus fetal anesthesia is a relatively rare procedure. 
 
-To deal with the limited amount of data, we've decided to bring the data to another dimension, we reduced the space from videos to images. In other to do this, we decided to sample the videos at the hate of every 2 seconds. With these processes, we created a total of 268 images.
+Thus, we ended up with 15 videos available. However, it is relatively common for studies in the field to also have a small N, as mentioned by \cite{ZamzmiPGKSA16}.
 
-But as the images were recorded from ultrasound machines, they depend on the calibration by the doctors to capture the exact section of the 3-dimensional space where the fetus face is. Because of this, it is common for this type of image to have a lot of noise, and thus some of the sampled images did not contain a clear face of the fetus. This was a problem, as we had a significant number of images, and manual selection would not only be hard but also non-deterministic.
+Since we had such a small number of videos, it was not possible to work with them directly. So, we decided to bring the data to another dimension, reducing the space from videos to images. In order to do this, we decided to sample the videos and capture frames at a rate of 2 seconds. 
 
-To overcome this issue, we decided to use a neural network capable of detecting facial landmarks, like the nose, the mouth, and the eyes. The network we used was the Multi-task Cascaded Convolutional Networks (MTCNN) developed by \cite{ZhangZL016} which was created to identify faces in images. It worked surprisingly well in our domain, even though the images had quite different characteristics.
+With this process, we generated a total of 0000 images, but since the images were recorded from ultrasound machines, they depend on the calibration by the doctors to capture the exact section of the 3-D space where the fetus's face is clear. Because of this, it was common to find parts of the video where the face of the fetus was not visible and showed non-distinguishable parts.
 
-With this process, we were able to filter out our dataset of images from 268 to 145 and we're sure the images contained a clear face. The network also returned a confidence number of which it found the face in the image, and we've used only confidences of over 95\%, which on manual inspection was very reliable, with just 6 errors that were removed manually.
+As we had a significant number of images, and manual selection would be not only hard but also dependent on the observant, this became a problem.
 
-With the position of the facial landmarks, another process was to crop the images around the face of the fetus. This cropping is done just by adding padding to the places where the image was. This process is achivable after we have the positions of the landmarks returned through the MTCNN. This also makes face alignment possible. This way, we avoid the blurred surroundings around the fetus which contains non-distinguishable parts. 
+To overcome this issue, we decided to use another neural network capable of detecting facial landmarks, like the nose, the mouth, and the eyes. The network we used was the Multi-task Cascaded Convolutional Networks (MTCNN) developed by \cite{ZhangZL016}, which identifies faces in images. It worked surprisingly well in our domain, even though the images had quite different characteristics.
 
-At this point, manual inspection was needed in other to separate the images back into the three groups. With the resting images, it was easy as all the frames were from resting positions. But with the ones from anesthesia and from the horn we had to split the data between before the stimulus and after it. This was not a though process as we knew exactly when the stimuli were applied and a clear difference in the facial expression could be noted. After this step, we ended up with 117 images which had a clear face on it. An example of cropping can be seen on Figure \ref{fig:cropping}.
+With this process, we were able to filter out our dataset of images from 0000 to 0000 and be sure the images contained a clear face. The network returns a confidence number of which it found the face in the image, and we have used only confidences of over 95\%, which on manual inspection showed to be very reliable, with just six clear errors that were removed manually.
+
+The position of the facial landmarks allowed us to crop the images around the face of the fetus, which is done just by adding padding to the places where they were. This process is achievable after we have the positions of the landmarks returned through the MTCNN, which also makes face alignment possible. This helps to discard images with blurred surroundings around the fetus, which contains non-distinguishable parts. 
+
+At this point, manual selection was needed in other to separate the images back into the three groups. With the resting images, it was easy as all the frames were from resting positions. However, with the anesthesia and horn ones, we had to split the data between before and after the stimulus. This was not a complicated process as we knew precisely when the stimuli were applied, and a clear difference in the facial expression could be noted. After this step, we ended up with 0000 images, which had a visible face on it. Figure \ref{fig:cropping} shows an example of a cropped image.
 
 \begin{figure}[h!tp]
     \centering
@@ -71,7 +77,7 @@ At this point, manual inspection was needed in other to separate the images back
 
 \subsection{Data Augmentation}
 
-Even though we had increased the size of the dataset by turning the videos into images, it was still considered a small dataset for deep learning models. To further augment our chances of succeeding, we have applied the use of data augmentation techniques to increase the variability of our data. The effectiveness of such a technique has been demonstrated by \cite{abs-1712-04621} and is widely used in the field.
+Even though we had increased the size of the dataset by turning the videos into images, it could still be considered a small dataset for deep learning models. To further augment our chances of succeeding, we have applied the use of data augmentation techniques to increase the variability of our data. The effectiveness of such a technique has been demonstrated by \cite{abs-1712-04621} and is widely used in the field.
 
 There is a range of possibilities for using data augmentation, the ones we've chosen are:
 

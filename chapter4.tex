@@ -56,17 +56,15 @@ Thus, we ended up with 15 videos available. However, it is relatively common for
 
 Since we had such a small number of videos, it was not possible to work with them directly. So, we decided to bring the data to another dimension, reducing the space from videos to images. In order to do this, we decided to sample the videos and capture frames at a rate of 2 seconds. 
 
-With this process, we generated a total of 0000 images, but since the images were recorded from ultrasound machines, they depend on the calibration by the doctors to capture the exact section of the 3-D space where the fetus's face is clear. Because of this, it was common to find parts of the video where the face of the fetus was not visible and showed non-distinguishable parts.
+With this process, we generated a total of 708 images, but since the images were recorded from ultrasound machines, they depend on the calibration by the doctors to capture the exact section of the 3-D space where the fetus's face is clear. Because of this, it was common to find parts of the video where the face of the fetus was not visible and showed non-distinguishable parts.
 
 As we had a significant number of images, and manual selection would be not only hard but also dependent on the observant, this became a problem.
 
 To overcome this issue, we decided to use another neural network capable of detecting facial landmarks, like the nose, the mouth, and the eyes. The network we used was the Multi-task Cascaded Convolutional Networks (MTCNN) developed by \cite{ZhangZL016}, which identifies faces in images. It worked surprisingly well in our domain, even though the images had quite different characteristics.
 
-With this process, we were able to filter out our dataset of images from 0000 to 0000 and be sure the images contained a clear face. The network returns a confidence number of which it found the face in the image, and we have used only confidences of over 95\%, which on manual inspection showed to be very reliable, with just six clear errors that were removed manually.
+With this process, we were able to filter out our dataset of images from 708 to 357 and be sure the images contained a clear face. The network returns a confidence number of which it found the face in the image, and we have used only confidences of over 95\%, which on manual inspection showed to be very reliable, with just six clear errors that were removed manually.
 
-The position of the facial landmarks allowed us to crop the images around the face of the fetus, which is done just by adding padding to the places where they were. This process is achievable after we have the positions of the landmarks returned through the MTCNN, which also makes face alignment possible. This helps to discard images with blurred surroundings around the fetus, which contains non-distinguishable parts. 
-
-At this point, manual selection was needed in other to separate the images back into the three groups. With the resting images, it was easy as all the frames were from resting positions. However, with the anesthesia and horn ones, we had to split the data between before and after the stimulus. This was not a complicated process as we knew precisely when the stimuli were applied, and a clear difference in the facial expression could be noted. After this step, we ended up with 0000 images, which had a visible face on it. Figure \ref{fig:cropping} shows an example of a cropped image.
+The position of the facial landmarks allowed us to crop the images around the face of the fetus, which is done just by adding padding to the places where they were. This process is achievable after we have the positions of the landmarks returned through the MTCNN, which also makes face alignment possible. This helps to discard images with blurred surroundings around the fetus, which contains non-distinguishable parts.  Figure \ref{fig:cropping} shows an example of a cropped image.
 
 \begin{figure}[h!tp]
     \centering
@@ -74,6 +72,8 @@ At this point, manual selection was needed in other to separate the images back 
     \caption{Image cropping with MTCNN}
     \label{fig:cropping}
 \end{figure}
+
+At this point, manual selection was needed in other to separate the images back into the three groups. With the resting images, it was easy as all the frames were from resting positions. However, with the anesthesia and horn ones, we had to split the data between before and after the stimulus. This was not a complicated process as we knew precisely when the stimuli were applied, and a clear difference in the facial expression could be noted.
 
 \subsection{Data Augmentation}
 
@@ -94,7 +94,7 @@ All of these methods have a probability of being applied and can be used in comb
 \begin{figure}[h!tp]
     \centering
     \includegraphics[width=.9\textwidth]{imgs/chap3_data_augmentation.png}
-    \caption{The same image with different data augmentation applied}
+    \caption{The same image with different data transformations applied}
     \label{fig:data_augmentation}
 \end{figure}
 

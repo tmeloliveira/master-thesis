@@ -102,7 +102,10 @@ To further experiment with this process, we have compared three levels of intens
 
 \subsection{Network Architecture and Transfer Learning}
 
-The network used was VGG with a pre-trained model on VGG Face, developed by \cite{ParkhiVZ15}.
+The network used was a Resnet pre-trained on the VGG Face 2 dataset, created by \cite{ParkhiVZ15}.
 
+% The loss function we used was binary cross-entropy, as it shows good performance for classification problems with two classes. This loss function is given by the following formula:
+
+% where λ is the set of weights, n is the number of samples in the batch, yi is the true output of the ith patient, pi is the predicted output for the ith patient, and k is the number of neurons to regularize. We optimize the network weights using Adam [Kingma and Ba, 2014], a stochastic optimization method with adaptive momentum, that is able to quickly achieve low error on the training set.
 
 

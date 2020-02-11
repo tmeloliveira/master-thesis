@@ -77,19 +77,19 @@ At this point, manual selection was needed in other to separate the images back 
 
 \subsection{Data Augmentation}
 
-Even though we had increased the size of the dataset by turning the videos into images, it could still be considered a small dataset for deep learning models. To further augment our chances of succeeding, we have applied the use of data augmentation techniques to increase the variability of our data. The effectiveness of such a technique has been demonstrated by \cite{abs-1712-04621} and is widely used in the field.
+Even though we had increased the size of the dataset by turning the videos into images, it is still considered a relatively small dataset for deep learning models. To further augment our chances of succeeding, we have applied the use of data augmentation techniques to increase the variability of our data. The effectiveness of this technique has been demonstrated by \cite{abs-1712-04621} and is widely used in the field.
 
-There is a range of possibilities for using data augmentation, the ones we've chosen are:
+There is a wide variety of transformations possible for using data augmentation, and the most straightforward ones usually work very well. We have chosen the following:
 
 \begin{itemize}
     \item Horizontal flip, which consists of mirroring the image horizontally. 
-    \item Rotation, which consists in applying small rotations to the image.
+    \item Rotation, which consists in applying small rotations to the images.
     \item Zoom, which consists of zooming in the image.
     \item Lightning, which consists of changing the brightness and the contrast of the image.
     \item Warping, which consists of adding distortions to the image. 
 \end{itemize}
 
-All of these methods have a probability of being applied and can be used in combination with each other. Thus for each image, given the probability, a combination of these techniques would be applied. Some examples of these different combinantions of data augmentation with the same image are shown on Figure \ref{fig:data_augmentation}.
+All of these methods have a probability of being applied and can be used in combination with each other. Thus for each image, given the probability, a combination of these techniques would be applied. Some examples of these different combinations within the same image are shown in Figure \ref{fig:data_augmentation}.
 
 \begin{figure}[h!tp]
     \centering
@@ -98,7 +98,8 @@ All of these methods have a probability of being applied and can be used in comb
     \label{fig:data_augmentation}
 \end{figure}
 
-To further experiment with this process, we have compared 3 sets of intensity in the changes. A smooth, which does more subtle changes, a medium one, which intensifies a little bit and a more aggressive one, which heavily transforms the images.  
+To further experiment with this process, we have compared three levels of intensity in the changes, a smooth one, which does more subtle changes, a medium one, which intensifies a little bit and a more aggressive one, which applies substantial transformations to the images.
+
 \subsection{Network Architecture and Transfer Learning}
 
 The network used was VGG with a pre-trained model on VGG Face, developed by \cite{ParkhiVZ15}.

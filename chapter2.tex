@@ -54,6 +54,8 @@ Nevertheless, the scales also have some limitations, as they are highly dependen
 
 \section{Automatic Pain Assessment}
 
+The development of learning models to automatically assess pain is has been a topic of research for a long time. As an example, in the adult's domain, \citep{MauricioCVC19} has achieved remarkable results in identifying spatiotemporal features extracted from video sequences for pain recognition.
+
 The first work attempting to assess pain in newborns automatically emerged in 2004 with the development of the iCOPE database \citep{Brahnam2006}. At the time, neural networks were not as popular and advanced as they are today. The first attempts made use of traditional techniques such as PCA, LDA, and SVM. Still, the results were satisfactory, and the experimental process they developed is similar to what is used today. 
 
 Their database consisted of 216 images from 26 infants being 13 girls and 13 boys. The images were collected in 5 different conditions, a resting baseline, bodily disturbance, an air stimulus on the nose, friction on the external surface of the heel, and the pain of a heel stick. The idea behind using this number of conditions was to make the set of images representative, but also challenging enough. The five conditions were later divided into two groups for classification: pain and non-pain.
@@ -65,3 +67,14 @@ Their first studies considered the best scenario where the system would be able 
 Given they had a small number of subjects, it was feasible to use a validation strategy known as leave-one-out, which consisted of iterating over every combination of using 25 subjects for training and 1 for testing. We have adopted the same strategy in our work.
 
 \section{Learning Models for Pain Assessment}
+
+As opposed to past work, like \citep{ZhiZGALS18}, which used filters and descriptors to extract features from images, modern approaches in automatic pain assessment of neonates usually make the use of neural networks to achieve state of the art results.
+
+\cite{abs-1807-01631}, for instance, has significantly improved the results in the aforementioned iCOPE dataset, achieving 0.948 of AUC by combining both handcrafted features and features extracted by CNNs.
+
+\cite{SalekinZGKH019} proposed a multi-channel shared network to classify pain from videos by extracting features from facial expressions and body movements. He also contributed with an alternative approach by using convolutional neural networks to extract features from crying sounds \citep{abs-1909-02543}.
+
+% In general, much like the pain scales, a combination of features from different inputs is what tends to work best. 
+
+
+

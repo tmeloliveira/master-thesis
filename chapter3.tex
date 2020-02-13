@@ -1,33 +1,41 @@
-\chapter{Data}
+\chapter{Background on Deep Learning}
 
-To the best of our knowledge, no publically available dataset exists with images or videos of fetuses while in pain exposure. This fact alone highlights the novelty and innovative aspects of our research, which was developed in collaboration with the study group of Fetal Pain from the University of São Paulo (USP). 
+In the task of image classification, traditional machine learning algorithms required hand-engineered features, like filters and descriptors, which were meant to extract information from the images to be used as an input for algorithms. These algorithms would then be trained to find patterns in these features capable of distinguishing between different classes.
 
-This group studies pain assessment techniques and conduct clinical trials on the topic. They were responsible for collecting the videos used in our work as well as assisting with the medical background to help answer our questions.
+Neural networks, on the other hand, have the advantage of being able to learn these features directly from the data, which makes the process of feature engineering a lot simpler and achieves better results in most cases. Furthermore, the recent advances in Deep Neural Networks have taken these capabilities to a new level. They not only win most of the competitions in the field but also achieve state of the art results in a wide range of real applications. One type of network that was responsible for these results is Convolutional Neural Networks (CNNs).
 
-\section{Data Collection}
+\section{Convolutional Neural Networks}
 
-The videos were recorded from a 4-D ultrasound machine of the model Voluson E8 by General Electric. They were recorded in three groups, for a total of 15 videos, being five from each group. All the fetuses were in the third trimester of gestation, with an average of 31.1 weeks with a 2.8 standard deviation.
+Convolutional Neural Networks are similar to traditional Neural Networks. They both have an input layer which receives the data, followed by hidden layers with numerous neurons with weights and biases capable of learning the characteristics of the data, and an output layer at the end which is responsible for classification. The main difference is that CNNs assume the input has some spatial relationship, which is a pattern present in images. Thus, knowledge of where pixels are located in reference to each other is preserved. CNNs are capable of extracting and capturing patterns from the images that would not have been possible if we used traditional networks. To extract these features, the networks uses two primary operations: convolution and pooling.
 
-The first set of videos was a baseline with fetuses in resting conditions. All the recordings were made during routine exams for prenatal care.
+Convolutions are mathematical operations that act as learnable filters (also called kernels) to capture patterns in the images. These filters are usually small in terms of dimension, tipically 3x3 or 5x5 matrices. Each one of them convolves across the width and height of the input image and compute dot products with the pixels of the image, producing an activation map out of it. These activation maps, once learned, are able to detect features in the images, such as edges, corners, or color shifts. 
 
-The second group was of fetuses that had to go through intra-uterine surgery, and thus needed fetal anesthesia. For these cases, the exact moment of the anesthetic puncture was recorded to capture the reaction of the fetus and its manifestations of pain. Videos from this group had two parts in it, first a baseline period defined for the first 30 seconds before the anesthesia puncture and second the 45 seconds immediately after the puncture.
+Pooling is another mathematical operation responsible for reducing the spatial size of the convolved feature. These series of transformations reduce the dimensionality of the data and makes it possible to process images of high resolution. 
 
-For this group, specifically, a second ultrasound machine was placed in the clinical room. While the main one was used for the medical procedure, the second targeted the fetus's face to monitor its expressions. This setup can be seen in Figure \ref{fig:ultrasound}.
+As multiple convolutional and pooling layers are stacked, the network becomes able to detect more complex patterns that are composed of multiple inputs of different feature extractors in the first layers. By turning this activation maps back into images, we are able to see what kinds of features they are detecting, as demonstrated by \citep{ZeilerF14}. 
 
-\begin{figure}[h!tp]
-    \centering
-    \includegraphics[width=.35\textwidth]{imgs/chap03_ultrasound_setup.jpg}
-    \caption{\textcolor{red}{Dúvida: Como citar figuras de outros artigos?}}
-    \label{fig:ultrasound}
-\end{figure}
+\section{Transfer Learning}
 
-Lastly, the third group was recorded while the fetus was exposed to the sound of a horn, which was meant to cause distress but no harm, thus it serves as a control group from which we expect to be able to differentiate from pain.
+Transfer Learning is a technique commonly used in machine learning when a learning model that was originally developed for one task is then reused on a second related task. It comes from the assumption that what has been learned in one setting can be used to improve optimization in another setting. The idea behind is inspired by human behavior, as sometimes we can use expertise in solving one problem to solve another one.
 
-\section{Ethics}
+Another motivation behind using transfer learning comes from the high computational cost necessary to train large deep neural networks for image classification. Since the number of parameters present in a CNN is very high, it requires a large amount of training data to tune the network for making precise predictions.
 
-All mothers have given written informed consent to participate in the study and to record the behavioral reactions of the fetuses. The study was also approved by the hospital's ethics review board.
+As an example, a commonly used dataset in the field, ImageNet \citep{DengDSLL009}, contains 1.2 million images and has 1000 categories to classify. Even with today's computational power, it still requires a significant amount of hours to be trained.
 
-\section{Pain Evaluation}
+In this scenario, using transfer learning trough pre-trained networks arises as a solution. In this process, the weights and biases from a network trained in another task, are reused to train a new similar task.
 
-Images from the videos were reviewed by two blinded researchers who independently scored the facial pictures of each fetus using the Neonatal Facial Coding System to quantify the amount of pain. The reviewed factors were: deepening of the nasolabial furrow, open lips, horizontal mouth stretch, vertical mouth stretch, lip purse, taut tongue, tongue protrusion, chin quiver, brow lowering, and eyes squeezed shut. They have also added two other factors: yawning and neck deflection. These factors are commonly mentioned in medicine research observations of fetal reactions after a stimulus.
+Another reason for using transfer learning comes from the cases where we do not have enough data to train a CNN. \cite{CelonaBB19} highlights this is especially true in the medical field, as the acquisition costs are elevated, and it also involves a complicated setup for photographing, which makes it very common to have little annotated data.
 
+\section{Data Augmentation}
+
+Another solution that handles small datasets is data augmentation. It consists of applying transformations, such as geometric and color augmentations, for generating alternative images that derive from the original dataset.
+
+For each input image in the dataset, a new image is generated that can be zoomed, shifted, mirrored, rotated, distorted, or have changes in its color, brightness, contrast. Hence, this technique increases the amount of data available for input. 
+
+Having a large dataset is crucial for the performance of the deep learning models, but instead of starting with a large dataset of images, a more common scenario is to have a small amount of data available from the specific domain of research. This usually happens due to the high cost of collecting data, be it in terms of human labor or monetary resources. As mentioned in the previous section, this is mainly the case in the medical field. 
+
+Another problem of small datasets is that problems trained on them are often over-fitted to the specific data available, which means they lack the power of generalization, as the dataset is not representative of the real world. 
+
+In these cases, as discussed by \cite{abs-1712-04621}, data augmentation can act as a regularizer for preventing overfitting and also improve performance in imbalanced class problems.
+
+% \section{Visual Explanations}

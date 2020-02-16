@@ -1,22 +1,20 @@
 \chapter{Related Work}
 
-In this chapter, we present the most relevant research results that guided our work, exposing the methodologies used by the authors and how they correlate to ours. Research on automatic pain assessment has a significant intersection between the medical field and applied machine learning both for fetuses and infants \citep{ZamzmiPGKSA16, Bellieni2012}. Thus, we start by exploring the signs of pain in infants and fetuses, its main indicators, the available pain scales, and automatic methods to assess it. 
-
-Next, we present an overview of deep learning methods that form the basis of our methodology. We also explain how our work is different from the mentioned ones since we explore automatic pain assessment from a novel aspect with fetuses.
+In this chapter, we present the most relevant research results that guided our work, exposing the methodologies used by the authors and how they correlate to ours. Research on automatic pain assessment has a significant intersection between the medical field and applied machine learning both for fetuses and infants \citep{ZamzmiPGKSA16, Bellieni2012}. Thus, we start by exploring the signs of pain in infants and fetuses, its main indicators, the available pain scales, and automatic methods to assess it. We conclude the chapter by explaining how our work is different from the mentioned ones since we explore automatic pain assessment from a novel aspect with fetuses.
 
 \section{Pain}
 
-Pain is a universal form of distress present in humans and some other animals. Acute and chronic pain is very typical in the population and constitutes widespread public health problems \citep{Goldberg2011}. Its prolonged presence could cause many adverse consequences, including psychological effects, which is especially true in the case of fetuses and infants.
+Pain is a universal form of distress present in humans and some other animals. Acute and chronic pain is very typical in the population and constitutes widespread public health problems \citep{Goldberg2011}. Its prolonged presence could cause many adverse consequences, including psychological effects, which is especially true in the case of neonates and fetuses.
 
-The study of neonatal appears to have begun as early as the 1870s when Dr. Flechsig proposed it was unlikely that neonates could feel pain because their neuronal myelination was not complete \citep{cope1998neonatal}. Charles Darwin's book written a couple of years later agreed with this view, as he wrote that ``an infant's pain expressions were related to reflexes only'' \citep{darwin1872expression}. Even in the 1950s, some pediatric surgeries were still performed without analgesia and anesthesia \citep{cope1998neonatal}.
+The study of neonatal pain appears to have begun as early as the 1870s when Dr. Flechsig proposed it was unlikely that neonates could feel pain because their neuronal myelination was not complete \citep{cope1998neonatal}. Charles Darwin's book written a couple of years later agreed with this view, as he wrote that ``an infant's pain expressions were related to reflexes only'' \citep{darwin1872expression}. Even in the 1950s, some pediatric surgeries were still performed without analgesia and anesthesia \citep{cope1998neonatal}.
 
 It was only in the early 1980s that the first fetal surgery was performed by Dr. Michael Harrison \citep{Harrison1982}. The fetus to be operated had a blockage in the urinary tract that caused the kidney to dangerously extend, which is a condition known as congenital hydronephrosis. A vesicostomy was conducted to correct this issue by placing a catheter in the fetus to allow the urine to be released normally.
 
-Further progress has been made in the years since this first operation, as advances in imaging technology and in surgery techniques allowed additional defects to be treated and for less invasive forms of fetal surgical intervention to be performed.
+Further progress has been made in the years since this first operation, as advances in imaging technology and in surgery techniques allowed additional abnormalities to be treated and for less invasive forms of fetal surgical intervention to be performed.
 
-Even though the cases in which fetal surgery is necessary are relatively rare, it has become the standard form of intervention in some abnormalities like myelomeningocele, as shown by the Management of Myelomeningocele Trial \citep{Adzick2011}. The study compared outcomes of in utero repair (before birth) with standard postnatal repair (after birth). The conclusion was that prenatal repair might result in better neurologic function than repair deferred until after delivery.
+Even though the cases in which fetal surgery is necessary are relatively rare, it has become the standard form of intervention in some abnormalities like myelomeningocele, as shown by the Management of Myelomeningocele (MOMs) Trial \citep{Adzick2011}. The study compared outcomes of in utero repair (before birth) with standard postnatal repair (after birth). The conclusion was that prenatal repair might result in better neurologic function than repair deferred until after delivery.
 
-As shown by \cite{Devoto2017}, fetal pain is among the main concerns of anaesthesiologists during fetal surgery for myelomeningocele. Thus pain assessment is of fundamental help in those risky procedures.
+As shown by \cite{Devoto2017}, fetal pain is among the main concerns of anaesthesiologists during fetal surgery for myelomeningocele. Thus pain assessment and management is of fundamental help in those risky procedures, and its study is highly correlated to the one of fetal therapy.
 
 \subsection{Pain Indicators}
 
@@ -32,7 +30,7 @@ Physiological indicators, on the other hand, have the limitation that they are s
 
 Studies have also shown that biological markers like stress hormones (cortisol, adrenaline, and beta-endorphins) are increased in concentration in the blood in the presence of pain \citep{giannakoulopoulos1994fetal}. However, the problem of these indicators is that they depend on results from laboratory tests, which makes it unfeasible to use during clinal trials.
 
-One of the most important indicators of pain, not only in adults but also in infants and fetuses are facial expressions, which implies their frequent use in pain scales. Several facial movements are usually tracked, such as brow bulge, eye squeeze, nasolabial furrow, and open mouth. The assessment of these manifestations is done by observers, which use pain scales to identify its presence and intensity of pain. 
+One of the most important indicators of pain, not only in adults but also in neonates and fetuses are facial expressions, which implies in their frequent use in pain scales. Several facial movements are usually tracked, such as brow bulge, eye squeeze, nasolabial furrow, and open mouth. The assessment of these manifestations is done by observers, which use pain scales to identify its presence and intensity of pain. 
 
 % -------------------------------------------------------------
 % FALAR DE FACIAL EXPRESSIONS COMO INDICADORES

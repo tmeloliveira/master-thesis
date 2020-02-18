@@ -1,6 +1,6 @@
 \chapter{Related Work}
 
-In this chapter, we present the most relevant research results that guided our work, exposing the methodologies used by the authors and how they correlate to ours. Research on automatic pain assessment has a significant intersection between the medical field and applied machine learning both for fetuses and infants \citep{ZamzmiPGKSA16, Bellieni2012}. Thus, we start by exploring the signs of pain in infants and fetuses, its main indicators, the available pain scales, and automatic methods to assess it. We conclude the chapter by explaining how our work is different from the mentioned ones since we explore automatic pain assessment from a novel aspect with fetuses.
+In this chapter, we present the most relevant research results that guided our work, exposing the methodologies used by the authors and how they correlate to ours. Research on automatic pain assessment has a significant intersection between the medical field and applied machine learning both for fetuses and infants \citep{ZamzmiPGKSA16, Bellieni2012}. Thus, we start by exploring the signs of pain in infants and fetuses, their main indicators, the available pain scales measure them, and automatic methods of assessment. We conclude the chapter by explaining how our work is different from the mentioned ones as we explore automatic pain assessment from a novel perspective with fetuses.
 
 \section{Pain}
 
@@ -14,7 +14,7 @@ Further progress has been made in the years since this first operation, as advan
 
 Even though the cases in which fetal surgery is necessary are relatively rare, it has become the standard form of intervention in some abnormalities like myelomeningocele, as shown by the Management of Myelomeningocele (MOMs) Trial \citep{Adzick2011}. The study compared outcomes of in utero repair (before birth) with standard postnatal repair (after birth). The conclusion was that prenatal repair might result in better neurologic function than repair deferred until after delivery.
 
-As shown by \cite{Devoto2017}, fetal pain is among the main concerns of anaesthesiologists during fetal surgery for myelomeningocele. Thus pain assessment and management is of fundamental help in those risky procedures, and its study is highly correlated to the one of fetal therapy.
+As shown by \cite{Devoto2017}, fetal pain is among the main concerns of anaesthesiologists during fetal surgery for myelomeningocele. Thus pain assessment and management are of fundamental help in those risky procedures, and its study is highly correlated to fetal therapy and fetal surgery.
 
 \subsection{Pain Indicators}
 
@@ -30,23 +30,21 @@ Physiological indicators, on the other hand, have the limitation that they are s
 
 Studies have also shown that biological markers like stress hormones (cortisol, adrenaline, and beta-endorphins) are increased in concentration in the blood in the presence of pain \citep{giannakoulopoulos1994fetal}. However, the problem of these indicators is that they depend on results from laboratory tests, which makes it unfeasible to use during clinal trials.
 
-One of the most important indicators of pain, not only in adults but also in neonates and fetuses are facial expressions, which implies in their frequent use in pain scales. Several facial movements are usually tracked, such as brow bulge, eye squeeze, nasolabial furrow, and open mouth. The assessment of these manifestations is done by observers, which use pain scales to identify its presence and intensity of pain. 
+One of the most relevant indicators of pain, not only in adults but also in neonates and fetuses are facial expressions. As suggested by \cite{Yan2006}, a great way of evaluating fetal facial expressions is through the means of 4-D sonography, and as he points out, these studies may be the key to predicting fetal brain function and well-being. Later research by \cite{Reissland2011, Reissland2013} also suggests that, when healthy fetuses mature from 24 to 26 weeks of gestation, their capability of showing complex facial movements increases, and they were even able to observe facial expressions which resemble a face while in pain or distress.
 
-% -------------------------------------------------------------
-% FALAR DE FACIAL EXPRESSIONS COMO INDICADORES
-% -------------------------------------------------------------
+Facial expression indicators are frequently present in pain scales. Several facial movements are usually tracked, such as brow bulge, eye squeeze, nasolabial furrow, and open mouth. The assessment of these manifestations is done by observers, which use pain scales to identify its presence and intensity of pain.
 
 \subsection{Pain Scales}
 
 Various neonatal pain scales were developed using the many indicators mentioned in the previous section. These multidimensional scales are used by caregivers to assess pain with behavioral and physiological indicators. The most common scales are:
 
 \begin{itemize}
-    \item Neonatal Infant Pain Scale (NIPS)
-    \item Face, Legs, Activity, Crying and Consolability (FLACC)
-    \item Neonatal Facial Coding System (NFCS)
+    \item Neonatal Infant Pain Scale (NIPS), by \cite{Lawrence1993}
+    \item Face, Legs, Activity, Crying and Consolability (FLACC), by \cite{Merkel1996}
+    \item Neonatal Facial Coding System (NFCS), by \cite{Grunau1998}
 \end{itemize}
 
-These scales were all developed with neonates in mind, as some indicators observations are not easily measured in a fetus. However, recent studies by \citeauthor{bernardes2018feasibility} have reported that the use of the NFCS is feasible to detect pain-related facial expressions compared with the rest condition in a randomized and blinded assessment report.
+These scales were all developed with neonates in mind, as some indicators observations are not easily measured in a fetus. However, recent studies by \citeauthor{bernardes2018feasibility} have reported that the use of the NFCS is feasible to detect pain-related facial expressions compared with the rest condition in a randomized and blinded assessment report. We further discuss this study in Chapter 4.
 
 Nevertheless, the scales also have some limitations, as they are highly dependent on the observant bias, require specific training for proper utilization, and are not able to monitor pain in a continuous manner. Thus developing tools that are capable of doing this job automatically and continuously is highly compelling as they can generate a more consistent pain assessment.
 
@@ -73,6 +71,3 @@ As opposed to past work, like \citep{ZhiZGALS18}, which used filters and descrip
 \cite{SalekinZGKH019} proposed a multi-channel shared network to classify pain from videos by extracting features from facial expressions and body movements. He also contributed with an alternative approach by using convolutional neural networks to extract features from crying sounds \citep{abs-1909-02543}.
 
 % In general, much like the pain scales, a combination of features from different inputs is what tends to work best. 
-
-
-

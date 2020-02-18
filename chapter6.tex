@@ -1,46 +1,28 @@
 \chapter{Experimental Results}
 
+In this chapter, we present the experimental results of our research. As no previous work has attempted to develop models for automatic pain assessment in fetuses, we have no baseline to compare to. Thus, we discuss the decisions we have made along the way, which led to our best results. In particular, our experiments aim to answer the following research questions:
+
+\begin{itemize}
+    \item \textbf{RQ1:} Is it possible to construct a learning model capable of identifying the presence of pain in images of fetuses?
+    
+    \item \textbf{RQ2:} Is this model capable of discriminating images of fetuses while in acute pain exposure from those in a control group while in rest our in a vibroacoustic sound stimulus?
+    
+    \item \textbf{RQ3:} Does transfer learning transfer well from face recognition tasks in adults to our domain?
+\end{itemize}
+
 \section{Setup}
 
-\subsection{Tooling}
+Given we had relatively few data available, we chose a validation strategy that works best in this scenario. Like \cite{CelonaM17}, we used the leave-one-out method for cross-validation, but instead of leaving one image out, we leave one subject. Hence, we produce 15 different combinations containing training and test subsets. On each of these combinations, we train our networks in the training subset and evaluate on the test subset. All the evaluations are then averaged to assess the overall performance of the models.
 
-\subsection{Metric}
+The metric we used to evaluate our model in each validation set was accuracy. To calculate it for a given test set, we divide the number of images we have predicted the correct class by the total number of images available in that set.
 
-\subsection{Validation}
+Besides that, we have also calculated another metric for the videos of acute pain. As we have 45 seconds of video before the acute pain stimulus, and 45 seconds after it, we have images from both classes in these videos: Pain and Non-Pain.  This division allows the use of a metric that considers not only the cases we are making the correct prediction but also how much of each class we are making wrong predictions. Thus, like \cite{abs-1807-01631}, we have used the Area Under the ROC Curve (AUC) to evaluate the effectiveness of our models.
 
-\subsection{Error Analysis}
+% \subsection{Tooling}
+% \subsection{Metric}
+% \subsection{Validation}
+% \subsection{Error Analysis}
 
 \section{Results}
 
-The metric used to evaluate the effectiveness of our models is the standard Area Under the ROC Curve (AUC), as adopted by \cite{abs-1807-01631}. Like \cite{CelonaM17}, we also used the leave-one-out method for cross validation and relevant hyper-parameters were found using a further internal comparison. The results reported are the average of the 15 runs, which are used to assess the overall performance of the models. Two variations of data augmentation intensity are also reported.
-
-\begin{figure}[h!tp]
-    \centering
-    \includegraphics[width=1\textwidth]{imgs/chap4_validation.png}
-    \caption{Leave-one-out validation process}
-    \label{fig:validation}
-\end{figure}
-
-\begin{table}[htbp]
-\centering
-\caption{AUROC numbers for different network architectures and data augmentation intensity. The number in bold indicate the best approach on average in the validation process.}
-\label{tab:results}
-\begin{tabular}{lcc}
-\hline
-\multicolumn{1}{c}{}               & Mean           & Std            \\ \hline
-VGG16 + Medium Data Augmentation   & 0.767          & 0.200          \\
-VGG16 + Strong Data Augmentation   & 0.797          & 0.150          \\
-VGGFace + Medium Data Augmentation & \textbf{0.884} & \textbf{0.119} \\
-VGGFace + Strong Data Augmentation & 0.867          & 0.154          \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\textwidth]{imgs/chap4_gradcam.png}
-    \caption{Grad-CAM heatmap for interpretability}
-    \label{fig:gradcam}
-\end{figure}
-
-We have used the Grad-CAM \citep{SelvarajuCDVPB17} for interpretability, which is capable of creating a heatmap on the image with the fetures that were most relevant for the networks decision. An example can be seen on Figure \ref{fig:gradcam}.
 

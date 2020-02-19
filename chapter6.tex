@@ -16,7 +16,7 @@ Given we had relatively few data available, we chose a validation strategy that 
 
 The metric we used to evaluate our model in each validation set was accuracy. To calculate it for a given test set, we divide the number of images we have predicted the correct class by the total number of images available in that set.
 
-Besides that, we have also calculated another metric for the videos of acute pain. As we have 45 seconds of video before the acute pain stimulus, and 45 seconds after it, we have images from both classes in these videos: Pain and Non-Pain.  This division allows the use of a metric that considers not only the cases we are making the correct prediction but also how much of each class we are making wrong predictions. Thus, like \cite{abs-1807-01631}, we have used the Area Under the ROC Curve (AUC) to evaluate the effectiveness of our models.
+Besides that, we have also calculated another metric for the videos of acute pain. As we have 45 seconds of video before the acute pain stimulus, and 45 seconds after it, we have images from both classes in these videos: Pain and Non-Pain.  This division allows the use of a metric that considers not only the cases we are making the correct prediction but also how much of each class we are making wrong predictions. Thus, like \cite{abs-1807-01631}, we have used the Area Under the Receiver Operating Characteristic (AUROC) curve to evaluate the effectiveness of our models.
 
 % \subsection{Tooling}
 % \subsection{Metric}
@@ -25,4 +25,70 @@ Besides that, we have also calculated another metric for the videos of acute pai
 
 \section{Results}
 
+\begin{table}[h!tp]
+\centering
+\caption{Accuracy comparison considering all videos}
+\label{tab:accuracy_all}
+\begin{tabular}{lllll}
+\toprule
+         &        &          & \multicolumn{2}{l}{Accuracy} \\
+         &        &          &     Mean &    Std \\
+Training & Transforms & Network &          &        \\
+\midrule
+freeze   & weak   & ResNet (ImageNet) &    0.778 &  0.267 \\
+freeze   & weak   & ResNet (VGG Face) &    0.721 &  0.275 \\
+freeze   & strong & ResNet (ImageNet) &    0.671 &  0.308 \\
+freeze   & strong & ResNet (VGG Face) &    \textbf{0.787} & \textbf{ 0.231} \\
+unfreeze & weak   & ResNet (ImageNet) &    0.702 &  0.273 \\
+unfreeze & weak   & ResNet (VGG Face) &    0.731 &  0.237 \\
+unfreeze & strong & ResNet (ImageNet) &    0.749 &  0.243 \\
+unfreeze & strong & ResNet (VGG Face) &    0.727 &  0.243 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
+\begin{table}[h!tp]
+\centering
+\caption{Accuracy and AUROC considering only Acute Pain videos}
+\label{tab:accuracy_auroc_ap}
+\begin{tabular}{lllllll}
+\toprule
+         &        &          & \multicolumn{2}{l}{Accuracy} & \multicolumn{2}{l}{AUROC} \\
+         &        &          &      Mean &       Std &      Mean &       Std \\
+Training & Transforms & Network &           &           &           &           \\
+\midrule
+freeze   & weak   & ResNet (ImageNet) &  0.710 &  0.233 &  0.849 &  0.173 \\
+freeze   & weak   & ResNet (VGG Face) &  0.768 &  0.155 &  0.885 &  0.150 \\
+freeze   & strong & ResNet (ImageNet) &  0.698 &  0.205 &  0.850 &  0.130 \\
+freeze   & strong & ResNet (VGG Face) &  \textbf{0.802} & \textbf{ 0.118} &  \textbf{0.923} &  \textbf{0.063} \\
+unfreeze & weak   & ResNet (ImageNet) &  0.684 &  0.198 &  0.813 &  0.163 \\
+unfreeze & weak   & ResNet (VGG Face) &  0.763 &  0.132 &  0.898 &  0.112 \\
+unfreeze & strong & ResNet (ImageNet) &  0.692 &  0.185 &  0.909 &  0.110 \\
+unfreeze & string & ResNet (VGG Face) &  0.742 &  0.139 &  0.833 &  0.156 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h!tp]
+\centering
+\caption{Accuracy per test set in the leave-one-out validation}
+\label{tab:accuracy_leave_one_out}
+\begin{tabular}{lllllllllllll}
+\hline
+\multicolumn{13}{l}{Accuracy}                                                                                                                                                                                                                                                                                                                        \\ \hline
+\multicolumn{1}{l|}{1D}   & \multicolumn{1}{l|}{2D}   & \multicolumn{1}{l|}{3D}   & \multicolumn{1}{l|}{4D}   & \multicolumn{1}{l|}{5D}   & \multicolumn{1}{l|}{6K}   & \multicolumn{1}{l|}{7R}   & \multicolumn{1}{l|}{8R}   & \multicolumn{1}{l|}{9R}   & \multicolumn{1}{l|}{10R}  & \multicolumn{1}{l|}{11D}  & \multicolumn{1}{l|}{12K}  & 14K  \\ \hline
+\multicolumn{1}{l|}{0.91} & \multicolumn{1}{l|}{0.82} & \multicolumn{1}{l|}{0.58} & \multicolumn{1}{l|}{0.88} & \multicolumn{1}{l|}{0.85} & \multicolumn{1}{l|}{0.25} & \multicolumn{1}{l|}{1.00} & \multicolumn{1}{l|}{1.00} & \multicolumn{1}{l|}{1.00} & \multicolumn{1}{l|}{0.67} & \multicolumn{1}{l|}{0.77} & \multicolumn{1}{l|}{0.50} & 1.00 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!tp]
+\centering
+\caption{AUROC per test set in the leave-one-out validation, considering only Acute Pain videos}
+\label{tab:auroc_leave_one_out}
+\begin{tabular}{llllll}
+\hline
+\multicolumn{6}{l}{AUROC}                                                                                                                              \\ \hline
+\multicolumn{1}{l|}{1D}    & \multicolumn{1}{l|}{2D}    & \multicolumn{1}{l|}{3D}    & \multicolumn{1}{l|}{4D}    & \multicolumn{1}{l|}{5D}    & 11D   \\ \hline
+\multicolumn{1}{l|}{0.991} & \multicolumn{1}{l|}{0.983} & \multicolumn{1}{l|}{0.829} & \multicolumn{1}{l|}{0.938} & \multicolumn{1}{l|}{0.870} & 0.929 \\ \hline
+\end{tabular}
+\end{table}

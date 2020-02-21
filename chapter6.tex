@@ -3,9 +3,9 @@
 In this chapter, we present the experimental results of our research. As no previous work has attempted to develop models for automatic pain assessment in fetuses, we have no baseline to compare to. Thus, we discuss the decisions we have made along the way, which led to our best results. In particular, our experiments aim to answer the following research questions:
 
 \begin{itemize}
-    \item \textbf{RQ1:} Is it possible to construct a learning model capable of identifying the presence of pain in images of fetuses?
+    \item \textbf{RQ1:} Is it possible to identify the presence of pain in images of fetuses from 4-D ultrasound machines? Can we create an effective learning model for automaitc pain identification?
     
-    \item \textbf{RQ2:} Is this model capable of discriminating images of fetuses while in acute pain exposure from those in a control group while in rest our in a vibroacoustic sound stimulus?
+    \item \textbf{RQ2:} Is this model capable of discriminating images of fetuses while in acute pain exposure from those in a control group while in rest our in a non-painful sound stimulus?
     
     \item \textbf{RQ3:} Does transfer learning transfer well from face recognition tasks in adults to our domain?
 \end{itemize}
@@ -27,7 +27,7 @@ Besides that, we have also calculated another metric for the videos of acute pai
 
 \begin{table}[h!tp]
 \centering
-\caption{Accuracy comparison considering all videos}
+\caption{Accuracy comparison considering all videos.}
 \label{tab:accuracy_all}
 \begin{tabular}{lllll}
 \toprule
@@ -49,7 +49,7 @@ unfreeze & strong & ResNet (VGG Face) &    0.727 &  0.243 \\
 
 \begin{table}[h!tp]
 \centering
-\caption{Accuracy and AUROC considering only Acute Pain videos}
+\caption{Accuracy and AUROC considering only Acute Pain videos.}
 \label{tab:accuracy_auroc_ap}
 \begin{tabular}{lllllll}
 \toprule
@@ -71,7 +71,7 @@ unfreeze & string & ResNet (VGG Face) &  0.742 &  0.139 &  0.833 &  0.156 \\
 
 \begin{table}[h!tp]
 \centering
-\caption{Accuracy per test set in the leave-one-out validation}
+\caption{Accuracy per test set in the leave-one-out validation.}
 \label{tab:accuracy_leave_one_out}
 \begin{tabular}{lllllllllllll}
 \hline
@@ -83,7 +83,7 @@ unfreeze & string & ResNet (VGG Face) &  0.742 &  0.139 &  0.833 &  0.156 \\
 
 \begin{table}[h!tp]
 \centering
-\caption{AUROC per test set in the leave-one-out validation, considering only Acute Pain videos}
+\caption{AUROC per test set in the leave-one-out validation, considering only Acute Pain videos.}
 \label{tab:auroc_leave_one_out}
 \begin{tabular}{llllll}
 \hline

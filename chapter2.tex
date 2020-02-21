@@ -50,13 +50,13 @@ Nevertheless, the scales also have some limitations, as they are highly dependen
 
 \section{Automatic Pain Assessment}
 
-The development of learning models to automatically assess pain is has been a topic of research for a long time. As an example, in the adult's domain, \citep{MauricioCVC19} has achieved remarkable results in identifying spatiotemporal features extracted from video sequences for pain recognition.
+The development of learning models to automatically assess pain has been a topic of research for a long time. As an example, in the adult's domain, \citep{MauricioCVC19} has achieved remarkable results in identifying spatiotemporal features extracted from video sequences for pain recognition.
 
-The first work attempting to assess pain in newborns automatically emerged in 2004 with the development of the iCOPE database \citep{Brahnam2006}. At the time, neural networks were not as popular and advanced as they are today. The first attempts made use of traditional techniques such as PCA, LDA, and SVM. Still, the results were satisfactory, and the experimental process they developed is similar to what is used today. 
+The first work attempting to automatically assess pain in newborns emerged in 2004 with the development of the iCOPE database \citep{Brahnam2006}. At the time, neural networks were not as popular and advanced as they are today. The first attempts used traditional techniques such as PCA, LDA, and SVM. Still, the results were satisfactory, and the experimental process they developed is similar to what is used today with more modern techniques. 
 
-Their database consisted of 216 images from 26 infants being 13 girls and 13 boys. The images were collected in 5 different conditions, a resting baseline, bodily disturbance, an air stimulus on the nose, friction on the external surface of the heel, and the pain of a heel stick. The idea behind using this number of conditions was to make the set of images representative, but also challenging enough. The five conditions were later divided into two groups for classification: pain and non-pain.
+The iCOPE database consisted of 216 images from 26 infants being 13 girls and 13 boys. The images were collected in 5 different conditions, a resting baseline, bodily disturbance, an air stimulus on the nose, friction on the external surface of the heel, and the pain of a heel stick. The idea behind using this variety of conditions was to make sure the set of images were representative, but also challenging enough. The five conditions were later divided into two groups for classification: pain and non-pain.
 
-Our work as adopted a similar approach of not having only images of rest and pain, but we have also added a third set of images from other stimuli of a horn, which had the intention of causing discomfort, but no pain. 
+Our work has adopted a similar approach of not having only images of rest and pain, but also a third set of images from other stimuli, which in our case was a vibroacoustic sound stimulus with the intention of causing discomfort, but no pain. 
 
 Their first studies considered the best scenario where the system would be able to train on a fetus and evaluate that same fetus later on. However, as permanence in the baby nursery is quite short, they also had to consider the case where this was not possible. Thus the validation process had to consider the other scenario where the classifier had to be trained beforehand and evaluated on images of a new baby, which was not in the dataset distribution previously.
 

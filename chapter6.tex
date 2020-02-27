@@ -12,11 +12,11 @@ In this chapter, we present the experimental results of our research. As no prev
 
 \section{Setup}
 
-Given we had relatively few data available, we chose a validation strategy that works best in this scenario. Like \cite{CelonaM17}, we used the leave-one-out method for cross-validation, but instead of leaving one image out, we leave one subject. Hence, we produce 15 different combinations containing training and test subsets. On each of these combinations, we train our networks in the training subset and evaluate on the test subset. All the evaluations are then averaged to assess the overall performance of the models.
+Given we had relatively few data available, we chose a validation strategy that works best in this scenario. Like \cite{CelonaM17}, we used the leave-one-out method for cross-validation, but instead of leaving one image out, we leave one subject. Hence, we produce 13 different combinations containing training and test subsets. On each of these combinations, we train our networks in the training subset and evaluate on the test subset. All the evaluations are then averaged to assess the overall performance of the models.
 
 The metric we used to evaluate our model in each validation set was accuracy. To calculate it for a given test set, we divide the number of images we have predicted the correct class by the total number of images available in that set.
 
-Besides that, we have also calculated another metric for the videos of acute pain. As we have 45 seconds of video before the acute pain stimulus, and 45 seconds after it, we have images from both classes in these videos: Pain and Non-Pain.  This division allows the use of a metric that considers not only the cases we are making the correct prediction but also how much of each class we are making wrong predictions. Thus, like \cite{abs-1807-01631}, we have used the Area Under the Receiver Operating Characteristic (AUROC) curve to evaluate the effectiveness of our models.
+Besides that, we have also calculated another metric for the videos of acute pain. As we have 45 seconds of video before the acute pain stimulus, and 45 seconds after it, we have images from both classes in these videos: Pain and Non-Pain.  This division allows the use of a metric that considers not only the cases we are making the correct prediction but also how much of each class we are making wrong predictions. Thus, like \cite{abs-1807-01631}, we have used the Area Under the Receiver Operating Characteristic Curve (AUC) to evaluate the effectiveness of our models.
 
 % \subsection{Tooling}
 % \subsection{Metric}
@@ -49,11 +49,11 @@ unfreeze & strong & ResNet (VGG Face) &    0.727 &  0.243 \\
 
 \begin{table}[h!tp]
 \centering
-\caption{Accuracy and AUROC considering only Acute Pain videos.}
-\label{tab:accuracy_auroc_ap}
+\caption{Accuracy and AUC considering only Acute Pain videos.}
+\label{tab:accuracy_auc_ap}
 \begin{tabular}{lllllll}
 \toprule
-         &        &          & \multicolumn{2}{l}{Accuracy} & \multicolumn{2}{l}{AUROC} \\
+         &        &          & \multicolumn{2}{l}{Accuracy} & \multicolumn{2}{l}{AUC} \\
          &        &          &      Mean &       Std &      Mean &       Std \\
 Training & Transforms & Network &           &           &           &           \\
 \midrule
@@ -75,20 +75,20 @@ unfreeze & string & ResNet (VGG Face) &  0.742 &  0.139 &  0.833 &  0.156 \\
 \label{tab:accuracy_leave_one_out}
 \begin{tabular}{lllllllllllll}
 \hline
-\multicolumn{13}{l}{Accuracy}                                                                                                                                                                                                                                                                                                                        \\ \hline
-\multicolumn{1}{l|}{1D}   & \multicolumn{1}{l|}{2D}   & \multicolumn{1}{l|}{3D}   & \multicolumn{1}{l|}{4D}   & \multicolumn{1}{l|}{5D}   & \multicolumn{1}{l|}{6K}   & \multicolumn{1}{l|}{7R}   & \multicolumn{1}{l|}{8R}   & \multicolumn{1}{l|}{9R}   & \multicolumn{1}{l|}{10R}  & \multicolumn{1}{l|}{11D}  & \multicolumn{1}{l|}{12K}  & 14K  \\ \hline
-\multicolumn{1}{l|}{0.91} & \multicolumn{1}{l|}{0.82} & \multicolumn{1}{l|}{0.58} & \multicolumn{1}{l|}{0.88} & \multicolumn{1}{l|}{0.85} & \multicolumn{1}{l|}{0.25} & \multicolumn{1}{l|}{1.00} & \multicolumn{1}{l|}{1.00} & \multicolumn{1}{l|}{1.00} & \multicolumn{1}{l|}{0.67} & \multicolumn{1}{l|}{0.77} & \multicolumn{1}{l|}{0.50} & 1.00 \\ \hline
+\multicolumn{13}{l}{Accuracy}        \\ \hline
+\multicolumn{1}{l|}{$1_{AP}$}  & \multicolumn{1}{l|}{$2_{AP}$}  & \multicolumn{1}{l|}{$3_{AP}$}  & \multicolumn{1}{l|}{$4_{AP}$}  & \multicolumn{1}{l|}{$5_{AP}$}  & \multicolumn{1}{l|}{$6_{AP}$}  & \multicolumn{1}{l|}{$7_{RE}$}  & \multicolumn{1}{l|}{$8_{RE}$}  & \multicolumn{1}{l|}{$9_{RE}$}  & \multicolumn{1}{l|}{$10_{RE}$} & \multicolumn{1}{l|}{$11_{AS}$} & \multicolumn{1}{l|}{$12_{AS}$} & $14_{AS}$ \\ \hline
+\multicolumn{1}{l|}{0.91} & \multicolumn{1}{l|}{0.82} & \multicolumn{1}{l|}{0.58} & \multicolumn{1}{l|}{0.88} & \multicolumn{1}{l|}{0.85} & \multicolumn{1}{l|}{0.77} & \multicolumn{1}{l|}{1.00} & \multicolumn{1}{l|}{1.00} & \multicolumn{1}{l|}{1.00} & \multicolumn{1}{l|}{0.67} & \multicolumn{1}{l|}{0.25} & \multicolumn{1}{l|}{0.50} & 1.00 \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[h!tp]
 \centering
-\caption{AUROC per test set in the leave-one-out validation, considering only Acute Pain videos.}
-\label{tab:auroc_leave_one_out}
+\caption{AUC per test set in the leave-one-out validation, considering only Acute Pain videos.}
+\label{tab:auc_leave_one_out}
 \begin{tabular}{llllll}
 \hline
-\multicolumn{6}{l}{AUROC}                                                                                                                              \\ \hline
-\multicolumn{1}{l|}{1D}    & \multicolumn{1}{l|}{2D}    & \multicolumn{1}{l|}{3D}    & \multicolumn{1}{l|}{4D}    & \multicolumn{1}{l|}{5D}    & 11D   \\ \hline
+\multicolumn{6}{l}{AUC} \\ \hline
+\multicolumn{1}{l|}{$1_{AP}$}    & \multicolumn{1}{l|}{$2_{AP}$}    & \multicolumn{1}{l|}{$3_{AP}$}    & \multicolumn{1}{l|}{$4_{AP}$}    & \multicolumn{1}{l|}{$5_{AP}$}    & $6_{AP}$   \\ \hline
 \multicolumn{1}{l|}{0.991} & \multicolumn{1}{l|}{0.983} & \multicolumn{1}{l|}{0.829} & \multicolumn{1}{l|}{0.938} & \multicolumn{1}{l|}{0.870} & 0.929 \\ \hline
 \end{tabular}
 \end{table}

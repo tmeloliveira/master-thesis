@@ -62,7 +62,7 @@ When we look at the accuracy reported in each validation set for the best model 
 \begin{table}[h!tp]
 \setlength{\tabcolsep}{3.41pt}
 \centering
-\caption{Accuracy per test set in the leave-one-out validation.}
+\caption{Accuracy per test set in the leave-one-out validation of the best model.}
 \label{tab:accuracy_leave_one_out}
 \begin{tabular}{lllllllllllll}
 \hline
@@ -76,8 +76,8 @@ If we look at the accuracy mean of the validation sets, grouped by the three eva
 
 \begin{table}[h!tp]
 \centering
-\caption{}
-\label{tab:my-table}
+\caption{Mean accuracy per image group.}
+\label{tab:mean_accuracy_group}
 \begin{tabular}{lc}
 \hline
                        & Accuracy \\ \hline
@@ -100,13 +100,13 @@ Nonetheless, we can also take a closer look at the results from the acute pain (
 Training & Transforms & Network &           &           &           &           \\
 \midrule
 freeze   & weak   & ResNet (ImageNet) &  0.710 &  0.233 &  0.849 &  0.173 \\
-freeze   & weak   & ResNet (VGG Face) &  0.768 &  0.155 &  0.885 &  0.150 \\
+freeze   & weak   & ResNet (VGGFace2) &  0.768 &  0.155 &  0.885 &  0.150 \\
 freeze   & strong & ResNet (ImageNet) &  0.698 &  0.205 &  0.850 &  0.130 \\
-freeze   & strong & ResNet (VGG Face) &  \textbf{0.802} & \textbf{ 0.118} &  \textbf{0.923} &  \textbf{0.063} \\
+freeze   & strong & ResNet (VGGFace2) &  \textbf{0.802} & \textbf{ 0.118} &  \textbf{0.923} &  \textbf{0.063} \\
 unfreeze & weak   & ResNet (ImageNet) &  0.684 &  0.198 &  0.813 &  0.163 \\
-unfreeze & weak   & ResNet (VGG Face) &  0.763 &  0.132 &  0.898 &  0.112 \\
+unfreeze & weak   & ResNet (VGGFace2) &  0.763 &  0.132 &  0.898 &  0.112 \\
 unfreeze & strong & ResNet (ImageNet) &  0.692 &  0.185 &  0.909 &  0.110 \\
-unfreeze & string & ResNet (VGG Face) &  0.742 &  0.139 &  0.833 &  0.156 \\
+unfreeze & string & ResNet (VGGFace2) &  0.742 &  0.139 &  0.833 &  0.156 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -118,7 +118,7 @@ When we look at the result from each validation set of acute pain (AP) of the be
 \begin{table}[h!tp]
 \setlength{\tabcolsep}{3.41pt}
 \centering
-\caption{AUC per test set in the leave-one-out validation, considering only Acute Pain videos.}
+\caption{AUC per test set in the leave-one-out validation of the best model, considering only Acute Pain videos.}
 \label{tab:auc_leave_one_out}
 \begin{tabular}{llllll}
 \hline

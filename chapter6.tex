@@ -23,17 +23,17 @@ In order to find the best network architecture for this particular problem, we h
     
     \item Pre-training, which could be on the ImageNet or the VGGFace2 datasets.
 \end{itemize}
-By combining all the possibilities of these three variables, we have a total of 8 experiments. Like \cite{abs-1807-01631}, we have chosen two types of pre-training for the CNNs, so we can compare the differences between using CNNs trained on a relatively similar dataset like VGGFace2, as opposed to CNNs trained on a general-purpose dataset like ImageNet.
+By combining all the possibilities of these three variables, we have a total of eight experiments. Like \cite{abs-1807-01631}, we have chosen two types of pre-training for the CNNs, so we can compare the differences between using CNNs trained on a relatively similar dataset like VGGFace2, as opposed to CNNs trained on a general-purpose dataset like ImageNet.
 
 Besides these variations, all the networks used Adam as a gradient descent optimization algorithm \citep{KingmaB14}. We have used a batch size of 8 for both training and validation, which yielded the best results after we have experimented with different sizes (4, 8, 16, 24). We have also applied some methods to prevent over-fitting like L2 for weight regularization \citep{Ng2004} and dropout \citep{SrivastavaHKSS14}.
 
-The metric we used to evaluate our model in each validation set was accuracy. To calculate it for a given test set, we divide the number of images we have predicted the correct class by the total number of images available in that set.
+The metric we used to evaluate our model during the validation process was accuracy. To calculate it for a given test set, we divide the number of images we have predicted the correct class by the total number of images available in that set.
 
 Additionally, we have also calculated another metric for the videos of acute pain (AP). As we have 45 seconds of video before the acute pain stimulus, and 45 seconds after it, we have images from both classes in these videos: pain and non-pain.  This division allows the use of a metric that considers not only the cases we are making the correct prediction but also how much of each class we are making the wrong predictions. Thus, like \cite{abs-1807-01631}, we have used the Area Under the Receiver Operating Characteristic Curve (AUC) to evaluate the performance of our models in the set of acute pain videos.
 
 \section{Results}
 
-In this section, we compare the performance of each training approach and discuss their results. Table \ref{tab:accuracy_all} displays the results in terms of accuracy considering each training method, which gives us some insights about the behavior of the models. For instance, we can see our best result came from a pre-training on VGGFace2, which confirms our hypothesis that it was better to use pre-training on a set more similar to ours. However, when looking at all the results, we can see that the overall standard deviation was reasonably high, which shows how difficult the task is with little data. In fact, by looking only at the dimensions of training type and transformations, a clear winner is not evident.
+In this section, we compare the performance of each training approach and discuss their results. Table \ref{tab:accuracy_all} displays the results in terms of accuracy considering each training method, which gives us some insights about the behavior of the different models. For instance, we can see our best result came from a pre-training on VGGFace2, which confirms our hypothesis that it was better to use pre-training on a set of images similar to ours. However, when looking at all the results, we can see that the overall standard deviation was reasonably high, which shows how difficult the task is with little data. In fact, by looking only at the dimensions of training type and transformations, a clear winner approach is not evident.
 
 \begin{table}[h!tp]
 \centering
@@ -57,7 +57,7 @@ unfreeze & strong & ResNet (VGGFace2) &    0.727 &  0.243 \\
 \end{tabular}
 \end{table}
 
-When we look at the accuracy reported in each validation set for the best model in Table \ref{tab:accuracy_leave_one_out}, we can see the model has a hard time predicting images from the acoustic stimulus (AS) group.
+When we look at the accuracy reported in each test set for the best model in Table \ref{tab:accuracy_leave_one_out}, we can see the model performs relatively well in the acute pain (AP) group, it is nearly perfect in the rest (RE) group, but has a hard time predicting images from the acoustic stimulus (AS) group.
 
 \begin{table}[h!tp]
 \setlength{\tabcolsep}{3.41pt}
@@ -67,12 +67,12 @@ When we look at the accuracy reported in each validation set for the best model 
 \begin{tabular}{lllllllllllll}
 \hline
 \multicolumn{13}{l}{Accuracy}        \\ \hline
-\multicolumn{1}{l|}{$1_{AP}$}  & \multicolumn{1}{l|}{$2_{AP}$}  & \multicolumn{1}{l|}{$3_{AP}$}  & \multicolumn{1}{l|}{$4_{AP}$}  & \multicolumn{1}{l|}{$5_{AP}$}  & \multicolumn{1}{l|}{$6_{AP}$}  & \multicolumn{1}{l|}{$7_{RE}$}  & \multicolumn{1}{l|}{$8_{RE}$}  & \multicolumn{1}{l|}{$9_{RE}$}  & \multicolumn{1}{l|}{$10_{RE}$} & \multicolumn{1}{l|}{$11_{AS}$} & \multicolumn{1}{l|}{$12_{AS}$} & $14_{AS}$ \\ \hline
+\multicolumn{1}{l|}{$1_{AP}$}  & \multicolumn{1}{l|}{$2_{AP}$}  & \multicolumn{1}{l|}{$3_{AP}$}  & \multicolumn{1}{l|}{$4_{AP}$}  & \multicolumn{1}{l|}{$5_{AP}$}  & \multicolumn{1}{l|}{$6_{AP}$}  & \multicolumn{1}{l|}{$7_{RE}$}  & \multicolumn{1}{l|}{$8_{RE}$}  & \multicolumn{1}{l|}{$9_{RE}$}  & \multicolumn{1}{l|}{$10_{RE}$} & \multicolumn{1}{l|}{$11_{AS}$} & \multicolumn{1}{l|}{$12_{AS}$} & $13_{AS}$ \\ \hline
 \multicolumn{1}{l|}{0.917} & \multicolumn{1}{l|}{0.824} & \multicolumn{1}{l|}{0.583} & \multicolumn{1}{l|}{0.875} & \multicolumn{1}{l|}{0.850} & \multicolumn{1}{l|}{0.769} & \multicolumn{1}{l|}{1.000} & \multicolumn{1}{l|}{1.000} & \multicolumn{1}{l|}{1.000} & \multicolumn{1}{l|}{0.667} & \multicolumn{1}{l|}{0.250} & \multicolumn{1}{l|}{0.500} & 1.000 \\ \hline
 \end{tabular}
 \end{table}
 
-If we look at the accuracy mean of the validation sets, grouped by the three evaluated scenarios, we can see how our score was much lower in the AS group. This is partly because it was harder to distinguish these images from pain, but also because the original videos contained some noise.
+If we look at the accuracy mean of the test sets in table \ref{tab:mean_accuracy_group}, which are grouped by the three evaluated scenarios, we can see how our score was much lower in the AS group. This result can be explained partly because it was harder to distinguish these images from pain, as the expressions of discomfort, anger, hunger, for example, can also generate similar reactions. However, besides that, we believe the fact this group had fewer videos, and that the original videos were noisier than the other groups, could have contributed to the lower results as well.
 
 \begin{table}[h!tp]
 \centering
@@ -113,7 +113,7 @@ unfreeze & string & ResNet (VGGFace2) &  0.742 &  0.139 &  0.833 &  0.156 \\
 
 We can see that the best model is still the same as the one from Table \ref{tab:auc_leave_one_out}. However, now we have some more insights in terms of the other two dimensions. For example, we can see the standard deviation is much lower, which can be explained not only by the fact we have fewer validations sets to consider but also because our model is performing better at predicting acute pain videos.
 
-When we look at the result from each validation set of acute pain (AP) of the best model individually, we see that videos $3_{AP}$ and $5_{AP}$ have a lower AUC, which shows how much variations in the images can affect the final result when we work with little data. 
+When we look at the result from each test set of acute pain (AP) of the best model individually, we see that videos $3_{AP}$ and $5_{AP}$ have a lower AUC, which shows how much variations in the images can affect the final result when we work with little data. 
 
 \begin{table}[h!tp]
 \setlength{\tabcolsep}{3.41pt}

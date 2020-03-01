@@ -15,3 +15,18 @@ If our model eventually gets integrated into an ultrasound machine, it would mak
 It is also important to highlight that even though nurses and caregivers must assess the videos used as inputs by our model, we think a model trained on a range of different videos from different sources, would tend to be much more unbiased than an assessment of a single caregiver. This result is also a great benefit, as we can produce a system ideally free from bias factors such as identity, background, culture, and gender, which may lead to inconsistent assessment and treatment of pain.
 
 \section{Future Work}
+
+Our studies have shown that it is viable to construct a model capable of identifying the presence of pain on images of fetuses from 4-D ultrasound machines. A larger dataset is already being collected by the same fetal pain study group, which has the potential to confirm our results and produce models that are even more robust and accurate. We are also currently not able to explain why the model made such predictions or what is the main factors it considered for detecting pain. Thus, we identify as future work the following possibilities:
+
+\begin{itemize}
+    \item Evaluate our models on larger datasets. Even though the data is quite complicated to collect and studies with fetuses and infants usually have a small number of subjects, we think it would be very beneficial to experiment with our methodology in a more extensive number of fetuses. This addition could bring more variability into the model inputs in terms of fetal positions, gestational age, gender, image quality, and many other factors, which will end up producing a better model.
+    
+    \item Expand our system to include chronic pain. Monitoring the same fetuses at different gestational ages has the potential to identify the presence of chronic factors. A model that evaluates not only acute pain but also chronic pain could, therefore, help in this scenario, as it may lead to further investigation of what is causing the chronic pain and maybe be the first indicator that an intervention may be necessary.
+
+    \item Include other types of features. As it is the case with pain scales, the combination of indicators is what tends to work best. Thus one could construct a model that takes as inputs not only images of the face and facial expressions but also other indicators such as sounds, body movements, physiological indicators, and biological markers. These new factors could help produce more robust models, and maybe identify conditions not visible through facial expressions only.
+    
+    \item Produce explainable models. Given a single fetus where the presence of pain has been identified, one should be able to visualize what are the most relevant features that the model analyzed to output its prediction. By making the decision of the models more transparent, one could point to the exact locations where the pain was present, which will lead to a better understating by fetal pain specialists. In an ideal scenario, these visual explanations should match the individual indicators present on the pain scale.
+
+\end{itemize}
+
+In summary, our main interests as future works are to help medical experts to understand the output of the models better and be more effective on pain assessment and management, which will eventually lead into improving overall fetuses life quality and well-being.

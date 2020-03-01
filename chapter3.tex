@@ -10,7 +10,36 @@ Convolutional neural networks are similar to traditional neural networks. They b
 
 Convolutions are linear mathematical operations that act as learnable filters (also called kernels) to capture patterns in the images. These filters are usually small in terms of dimension, typically 3x3 or 5x5 matrices. Each one of them convolves across the width and height of the input image and compute dot products with the pixels of the image, producing an activation map out of it. These activation maps, once learned, are able to detect features in the images, such as edges, corners, or color shifts. 
 
+\begin{figure}[h!tp]
+    \centering
+    \includegraphics[width=.89\textwidth]{imgs/chap3_convolution.png}
+    \caption[The convolution operation.]{The convolution operation. Figure extracted from the Peltarion website\footnotemark.}
+    \label{fig:data_augmentation}
+\end{figure}
+
+\footnotetext{\url{https://bit.ly/38bR3uK}}
+
 Pooling is another mathematical operation responsible for reducing the spatial size of the convolved feature. These series of transformations reduce the dimensionality of the data and makes it possible to process images of high resolution. 
+
+\begin{figure}[h!tp]
+\centering
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{imgs/chap3_max_pooling.png}
+  \caption{Average Pooling}
+  \label{fig:sub1}
+\end{subfigure}
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{imgs/chap3_avg_pooling.png}
+  \caption{Max Pooling}
+  \label{fig:sub2}
+\end{subfigure}
+\caption[Two types of pooling.]{Two types of pooling. Figure extracted from the Peltarion website\footnotemark.}
+\label{fig:pooling}
+\end{figure}
+
+\footnotetext{\url{https://bit.ly/2Pzpkxq}}
 
 As multiple convolutional and pooling layers are stacked, the network becomes able to detect more complex patterns that are composed of multiple inputs of different feature extractors in the first layers. By turning this activation maps back into images, we are able to see what kinds of features they are detecting, as demonstrated by \citep{ZeilerF14}.
 

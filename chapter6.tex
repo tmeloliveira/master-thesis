@@ -23,9 +23,10 @@ In order to find the best network architecture for this particular problem, we h
     
     \item Pre-training, which could be on the ImageNet or the VGGFace2 datasets.
 \end{itemize}
+
 By combining all the possibilities of these three variables, we have a total of eight experiments. Like \cite{abs-1807-01631}, we have chosen two types of pre-training for the CNNs, so we can compare the differences between using CNNs trained on a relatively similar dataset like VGGFace2, as opposed to CNNs trained on a general-purpose dataset like ImageNet.
 
-Besides these variations, all the networks used Adam as a gradient descent optimization algorithm \citep{KingmaB14}. We have used a batch size of 8 for both training and validation, which yielded the best results after we have experimented with different sizes (4, 8, 16, 24). We have also applied some methods to prevent over-fitting like L2 for weight regularization \citep{Ng2004} and dropout \citep{SrivastavaHKSS14}.
+Besides these variations, all the networks used Adam as a gradient descent optimization algorithm \citep{KingmaB14}, which uses adaptive momentum to reduce the error in the training set quickly. We have used a batch size of 8 for both training and validation, which yielded the best results after we have experimented with different sizes (4, 8, 16, 24). We have also applied some methods to prevent over-fitting like L2 for weight regularization \citep{Ng2004} and dropout \citep{SrivastavaHKSS14}. Lastly, the loss function we used was binary cross-entropy, as it shows good performance for classification problems with two classes.
 
 The metric we used to evaluate our model during the validation process was accuracy. To calculate it for a given test set, we divide the number of images we have predicted the correct class by the total number of images available in that set.
 

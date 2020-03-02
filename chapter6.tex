@@ -135,6 +135,19 @@ Also, we can see the standard deviation is much lower, which can be explained no
 
 When we look at the result from each test set of acute pain (AP) from the best model in Table \ref{tab:auc_leave_one_out}, we see that videos $3_{AP}$ and $5_{AP}$ have a lower AUC, which shows how much variations in the images can affect the final result when we work with little.
 
+\section{Visual Explanations}
+
+The success of convolutional neural networks came with the ever-increasing complexity of the architectures, which led to difficulties in understanding why the models make certain decisions. Some methods exist to try to overcome this issue, such as Grad-CAM \citep{SelvarajuCDVPB17}, which tries to provide visual explanations of why the model made a given decision. This method uses the gradients of the target flowing back into the final convolutional layer to produce a heat map that highlights the important regions in the image that were used for prediction.
+
+We have attempted to use this technique to identify the parts of the image our models found that were the most relevant for classifying an image as pain. In an ideal scenario, the heat map should be stronger in the parts of the image that are indicators of pain, like the ones used by the pain scales. However, even though this did happen for some examples, as we can see in Figure \ref{fig:gradcam}, for most cases, the heat map was inconclusive. We believe this could also be an effect of the limited amount of data, thus we propose this topic gets further investigated in a future work.
+
+\begin{figure}[h!tp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{imgs/chap6_gradcam.png}
+    \caption{Grad-CAM heat map for visual explanations.}
+    \label{fig:gradcam}
+\end{figure}
+
 \section{Answering Our Research Questions}
 
 In this section, we aim to answer the proposed research questions from the beginning of this chapter based on the results we presented.

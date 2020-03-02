@@ -90,7 +90,16 @@ One general-purpose dataset very often used for pre-training is ImageNet \footno
 
 Convolutional neural networks are very often pre-trained on this dataset, as it contains images of many different categories, like plants, animals, cars, objects, and many others. Hence, by training on this data, the network can learn low-level features such as lines, edges, and basic shapes, but also mid-level features which build on top of the low-level ones, and can detect objects or more complex shapes. These types of features can be considered independent from the final task to some extent, as for many applications detecting basic shapes will often be necessary.
 
-Another popular large-scale dataset used for pre-training is the VGGFace2 \footnote{\url{http://www.robots.ox.ac.uk/~vgg/data/vgg_face2}} \citep{Cao2018}, which consists of 3.3 million images of faces downloaded from Google Image Search, with variations in pose, age, illumination, ethnicity, and profession. This dataset was the same used by \cite{abs-1807-01631} for automatically detecting pain in infants, therefore we hypothesize it would perform well in our data too. We believe the high-level features learned by a network trained on this dataset should be able to detect similar features to the ones we aim to detect in fetuses, such as the mouth, the nose, and the eyes, to mention a few.
+Another popular large-scale dataset used for pre-training is the VGGFace2 \footnote{\url{http://www.robots.ox.ac.uk/~vgg/data/vgg_face2}} \citep{Cao2018}, which consists of 3.3 million images of faces downloaded from Google Image Search, with variations in pose, age, illumination, ethnicity, and profession. A few example images from this dataset can be seen in Figure \ref{fig:vggface}.
+
+\begin{figure}[h!tp]
+    \centering
+    \includegraphics[width=.8\textwidth]{imgs/chap5_vggface2.png}
+    \caption[VGGFace2 example images.]{VGGFace2 example images. Images extracted from \cite{Cao2018}}
+    \label{fig:vggface}
+\end{figure}
+
+This dataset was the same used by \cite{abs-1807-01631} for automatically detecting pain in infants, therefore we hypothesize it would perform well in our data too. We believe the high-level features learned by a network trained on this dataset should be able to detect similar features to the ones we aim to detect in fetuses, such as the mouth, the nose, and the eyes, to mention a few.
 
 \subsection{Fine-tuning}
 

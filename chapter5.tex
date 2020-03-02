@@ -50,17 +50,54 @@ All of these methods have a probability of being applied and can be used in comb
 
 To further experiment with this process, we have compared two levels of intensity in the changes regarding their max levels of rotation, zoom, warping, and lightning. First, a weak set of transformations, which does subtle changes in the images. Later, a stronger set, which applies substantial changes to the images.
 
-\section{Residual Networks}
+\section{Residual Networks (ResNets)}
 
-The network used was a ResNet created by \cite{ParkhiVZ15}.
+Uncountable convolutional neural network architectures have been developed by researchers around the world with many creative modifications, designed for a range of applications. One type of network that is commonly used is the Deep Residual Network (ResNet) developed by \cite{ParkhiVZ15}. This network was the winner of the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) \citep{ILSVRC15}, achieving an error rate of only 3.57\% in the image classification task.
+
+The intuition behind ResNet emerged when the researchers behind the project noticed that as they increased the depth of a regular network, its training and test errors got worse than when compared to an equivalent shallow network. This happens because of a well-known problem, the vanishing gradient. As the gradient back-propagates to the earlier layers of a network, the repeated multiplications make the gradient infinitely small, which prevents it from reaching the weights of the earlier layers.
+
+Other techniques have been developed to deal with this problem, such as batch normalization, but despite that, deeper networks still suffer from degradation in convergence, as the errors remain higher than if it was on an equivalent shallow network.
+
+The insight the authors had, was that when adding extra layers, if these layers are identity mappings, they become equivalent to the shallower network. Thus, the deeper network should not produce an error higher than its shallower counterpart. They achieved this behavior by injecting these identity mappings in the network trough shortcut connections, which are simply connections skipping one or more layers. The output of these layers is added to the outputs of the stacked layers, and add no extra parameter nor computational complexity to the networks.
+
+Another insight they had was regarding residuals, which are just the error in a result. Thus, the network should be able to learn these residuals so that the predictions are closer to the actual values. By combining these two ideas, they have created the residual learning building block, as shown in Figure \ref{fig:building_block} extracted from the original paper.
+
+\begin{figure}[h!tp]
+    \centering
+    \includegraphics[width=.5\textwidth]{imgs/chap5_building_block.png}
+    \caption[Residual Network building block.]{Residual Network building block. Image extracted from \cite{ParkhiVZ15}}
+    \label{fig:building_block}
+\end{figure}
+
+During the training period, the ResNet learns the weights of its layers in a way that if the identity mapping were optimal, all the weights would be set to zero.
+
+In the diagram, we can see that if $F(x)$ becomes zero, it means $x$ is getting directly mapped to the actual value, and no corrections need to be made. These are the identity mappings that help the network grow deeper. On the other hand, if there is a deviation from optimal identity mapping i.e., a residual, the weights and biases of $F(x)$ will be learned to adjust for it. In other words, $F(x)$ learns how to adjust our predictions to match the actual values.
+
+These building blocks are stacked together to arrive at a deep network architecture. Figure \ref{fig:resnet}, also extracted from the original paper, shows a comparison between a 34-layer plain network and 34-layer ResNet. In our work, we have used 50-layer one with the intuition that a relatively larger network would yield better results.
+
+\begin{figure}[h!tp]
+    \centering
+    \includegraphics[width=.4\textwidth]{imgs/chap5_resnet.png}
+    \caption[34-layer plain network in comparison with 34-layer residual network.]{34-layer plain network in comparison with 34-layer residual network. Image extracted from \cite{ParkhiVZ15}}
+    \label{fig:resnet}
+\end{figure}
 
 \section{Transfer Learning}
 
+As described in Chapter 3, training a deep neural network from scratch is a very costly task, both in terms of the amount of data necessary as well as in terms of computational power. Because of these factors, transfer learning is often used in a variety of applications as a solution for when we have a limited amount of data, which is especially the case in the medical field. The intuition is that by using pre-trained weights, we can get the benefits of networks trained on much larger datasets, often with millions of images. Then, by changing only the last fully connected layer of the network to match the number of classes in our problem, we are able to fine-tune them with our data.
+
+One general-purpose dataset very often used for pre-training is ImageNet \footnote{\url{http://www.image-net.org}} \citep{DengDSLL009}, which consists of more than 14 million images, which have been hand-annotated by the project to indicate what objects are pictured on them. This visual database was designed for use in visual object recognition software studies and had a significant impact on deep learning research. The most popular network architectures we now today, have emerged in the ImageNet Large Scale Visual Recognition Challenge (ILSVRC), an annual computer vision contest held between 2010 and 2017, which uses a subset of the ImageNet database with 1.2 million images and 1000 classes. 
+
+Convolutional neural networks are very often pre-trained on this dataset, as it contains images of many different categories, like plants, animals, cars, objects, and many others. Hence, by training on this data, the network can learn low-level features such as lines, edges, and basic shapes, but also mid-level features which build on top of the low-level ones, and can detect objects or more complex shapes. These types of features can be considered independent from the final task to some extent, as for many applications detecting basic shapes will often be necessary.
+
+Another popular large-scale dataset used for pre-training is the VGGFace2 \footnote{\url{http://www.robots.ox.ac.uk/~vgg/data/vgg_face2}} \citep{Cao2018}, which consists of 3.3 million images of faces downloaded from Google Image Search, with variations in pose, age, illumination, ethnicity, and profession. This dataset was the same used by \cite{abs-1807-01631} for automatically detecting pain in infants, therefore we hypothesize it would perform well in our data too. We believe the high-level features learned by a network trained on this dataset should be able to detect similar features to the ones we aim to detect in fetuses, such as the mouth, the nose, and the eyes, to mention a few.
+
+\subsection{Fine-tuning}
+
 When using transfer learning, the features computed in the early layers of the network usually are already well trained in doing basic tasks such as recognizing basic lines, patterns, or gradients. On the other hand, the features computed in the later layers are the ones highly dependent on the specific task we are trying to predict. Thus, when we are fine-tuning the network in our domain, we have two main approaches to train the network, namely with frozen or unfrozen layers. These methods allow us to decide which specific layers of our model we want to train at a given time. 
 
-In the frozen approach, all layers except the last one will be untrainable. In the unfrozen approach, however, all the layers are kept unfrozen during training, and the errors are back-propagated to the entire network during fine-tuning. Hence, even the early layers may be affected. In our experiments, we decided to test both approaches, as even though unfreezing the layers appears to be better, we were unsure if the amount of data and its noise would be enough to improve the weights of the whole network.
+In the frozen approach, all layers except the last one will not be trainable. In the unfrozen approach, however, all the layers are kept unfrozen during training, and the errors are back-propagated to the entire network during fine-tuning. Hence, even the early layers may be affected. In our experiments, we decided to test both approaches, as even though unfreezing the layers appears to be better, we were unsure if the amount of data and its noise would be enough to improve the weights of the whole network.
 
-VGGFace2: \citep{Cao2018}
-ImageNet: \citep{DengDSLL009}
+
 
 

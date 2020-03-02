@@ -14,13 +14,13 @@ In this chapter, we present the experimental results of our research. As no prev
 
 Given we had relatively few data available, we chose a validation strategy that works best in this scenario. Like \cite{CelonaM17}, we used the leave-one-out method for cross-validation, but instead of leaving one image out, we leave one subject. Hence, we produce 13 different combinations containing training and test subsets. On each of these combinations, we train our networks in the training subset with images of twelve fetuses and evaluate on the test subset with images of one. All the evaluations are then averaged to assess the overall performance of the models.
 
-In order to find the best network architecture for this particular problem, we have tested a few variations in the setup. These variations are regarding three variables:
+In order to find the best network architecture for this particular problem, we have tested a few variations in the setup as described in Chapter 5. These variations are regarding three variables:
 
 \begin{itemize}
     \item Data augmentation, which could be with weak or strong transformations.
-    
+
     \item Network training, which could be with frozen or unfrozen layers.
-    
+
     \item Pre-training, which could be on the ImageNet or the VGGFace2 datasets.
 \end{itemize}
 

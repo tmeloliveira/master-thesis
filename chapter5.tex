@@ -82,7 +82,7 @@ These building blocks are stacked together to arrive at a deep network architect
     \label{fig:resnet}
 \end{figure}
 
-\section{Transfer Learning}
+\section{Transfer Learning and Fine-tuning}
 
 As described in Chapter 3, training a deep neural network from scratch is a very costly task, both in terms of the amount of data necessary as well as in terms of computational power. Because of these factors, transfer learning is often used in a variety of applications as a solution for when we have a limited amount of data, which is especially the case in the medical field. The intuition is that by using pre-trained weights, we can get the benefits of networks trained on much larger datasets, often with millions of images. Then, by changing only the last fully connected layer of the network to match the number of classes in our problem, we are able to fine-tune them with our data.
 
@@ -102,12 +102,6 @@ Another popular large-scale dataset used for pre-training is the VGGFace2 \footn
 
 This dataset was the same used by \cite{abs-1807-01631} for automatically detecting pain in infants, therefore we hypothesize it would perform well in our data too. We believe the high-level features learned by a network trained on this dataset should be able to detect similar features to the ones we aim to detect in fetuses, such as the mouth, the nose, and the eyes, to mention a few.
 
-\subsection{Fine-tuning}
-
 When using transfer learning, the features computed in the early layers of the network usually are already well trained in doing basic tasks such as recognizing basic lines, patterns, or gradients. On the other hand, the features computed in the later layers are the ones highly dependent on the specific task we are trying to predict. Thus, when we are fine-tuning the network in our domain, we have two main approaches to train the network, namely with frozen or unfrozen layers. These methods allow us to decide which specific layers of our model we want to train at a given time. 
 
 In the frozen approach, all layers except the last one will not be trainable. In the unfrozen approach, however, all the layers are kept unfrozen during training, and the errors are back-propagated to the entire network during fine-tuning. Hence, even the early layers may be affected. In our experiments, we decided to test both approaches, as even though unfreezing the layers appears to be better, we were unsure if the amount of data and its noise would be enough to improve the weights of the whole network.
-
-
-
-

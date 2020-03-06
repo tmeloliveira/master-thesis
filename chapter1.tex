@@ -10,13 +10,13 @@ With recent advances in Artificial Intelligence (AI), the capacity of machines t
 
 \section{Motivation}
 
-With studies showing that fetuses beyond a certain age can also experience pain \citep{Derbyshire2006, Derbyshire2020}, early identification of this discomfort can be valuable in many situations. 
+With studies showing that fetuses beyond a certain week may also experience pain \citep{Derbyshire2006, Derbyshire2020}, early identification of this discomfort can be valuable in many situations. 
 
 One example is intrauterine surgery, which may be of significant benefit in the future development and survival of the fetus. Early correction, prior to birth, of congenital problems, will likely increase the odds of a healthy baby. These procedures, however, are quite invasive to the fetus and could eventually cause harm. The assessment of pain during the intrauterine life of a fetus is, therefore, a task with the potential of bringing significant improvements to fetus life quality. 
 
 Another critical topic is abortion. In the United States, a 2016 law from the state of Utah determines that women seeking abortion 20 weeks or more into pregnancy will first have to be given anesthesia or painkillers \citep{healy2016nytimes}. This procedure is intended not for them but the fetus. 
 
-This topic involves much ethical debate, as the exact week when a fetus starts experiencing pain is not well defined, and at the same time, abortion is only legal until a particular week \citep{Derbyshire2006}. So discussion arises not only if the fetus can or can not experience pain, but also as it may be the case that fetuses can only experience pain after weeks in which abortion is no longer possible. Evidence on the presence of pain in this scenario would be a significant contribution in such a delicate situation and may assist the decision by the doctors and the mother.
+This topic involves much ethical debate, as the exact week when a fetus starts experiencing pain nor if they feel pain at all is well defined \citep{jama.294.8.947}. At the same time, abortion is only legal until a particular week \citep{Derbyshire2006}. So discussion arises not only if the fetus can or can not experience pain, but also as it may be the case that fetuses can only experience pain after weeks in which abortion is no longer possible. Evidence on the presence of pain in this scenario would be a significant contribution in such a delicate situation and may assist the decision by the doctors and the mother.
 
 For both scenarios, the current standard for assessing pain in infants and fetuses relies on caregivers' observation of specific behaviors such as facial expressions. However, these observations are subject to bias and can be affected by several factors, such as identity, background, culture, and gender, which may lead to inconsistent assessment and treatment of pain. An impartial perspective during the pain assessment process could bring a more realistic and deterministic view on the subject. Hence, computational help would be of great use in finding evidence of pain and in effectively managing it.
 
@@ -35,11 +35,11 @@ This work also opens the way to explore the evolution of pain-related facial res
 In summary, our main contributions are:
 
 \begin{itemize}
-    \item We have created a systematic procedure for collecting and processing images of a fetus from videos of 4-D ultrasound machines. This procedure is also capable of detecting their facial landmarks. From this procedure, we have created a labeled database consisting of 230 images of 15 fetuses with facial expressions while in the manifestation of pain and two other control conditions. To the best of our knowledge, no such database existed.
+    \item We have created a systematic procedure for collecting and processing images of a fetus from videos of 4-D ultrasound machines. This procedure is also capable of detecting their facial landmarks. From this procedure, we have created a labeled database consisting of 226 images of 13 fetuses with facial expressions while in the manifestation of pain and two other control conditions. To the best of our knowledge, no such database existed.
     
     \item We have developed a learning model capable of detecting the presence of pain indicators from images of a fetus's face. We believe this is good evidence towards an unbiased pain assessment process. This novel approach has the potential to improve the pain assessment process significantly on fetuses. It would facilitate pain management by the doctors and caregivers and could even be the first indicator of discomfort or distress, leading to earlier intervention if necessary.
     
-    \item We have shown that transfer learning with a network pre-trained with the face recognition task transfers well to fetus images even though the domain is different. We have achieved an area under the ROC curve of 0.69 on the classification task between pain and non-pain.
+    \item We have shown that transfer learning with a network pre-trained with the face recognition task transfers well to fetus images even though the domain is different. We have achieved an accuracy of 78.7\% on the classification task between images of pain and a non-painful control group. If we look only at the images from acute pain videos, and classify them between the images before the stimulus (at rest), and after it (acute pain), we were able to achieve an AUC of 0.923. 
 \end{itemize}
 
 \section{Organization}

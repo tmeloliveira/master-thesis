@@ -116,7 +116,7 @@ unfreeze & strong & ResNet (VGGFace2) &  0.742 &  0.139 &  0.833 &  0.156 \\
 \end{tabular}
 \end{table}
 
-We can see that the best model is still the same as the one from Table \ref{tab:accuracy_all}. However, now we have some more insights in terms of the other two dimensions. For example, we can see that the strong transformations have a slight advantage when compared to the weak in terms of AUC. Likewise, training the network with frozen layers performs better than unfrozen in terms of accuracy, which could also be caused by the noise in the data, so the error propagates back into the first layers, causing the network to worsen its performance. Although more data would be necessary to make conclusions.
+We can see that the best model is still the same as the one from Table \ref{tab:accuracy_all}. However, now we have some more insights in terms of the other two dimensions. For example, we can see that the strong transformations have a slight advantage when compared to the weak in terms of AUC. Likewise, training the network with frozen layers performs better than unfrozen in terms of accuracy, which could also be caused by the noise in the data, so the error propagates back into the first layers, causing the network to worsen its performance. Although more data would be ideal to make more conclusions.
 
 Also, we can see the standard deviation is much lower, which can be explained not only by the fact we have fewer validations sets to consider but also because our model is performing better at predicting acute pain videos.
 
@@ -133,7 +133,7 @@ Also, we can see the standard deviation is much lower, which can be explained no
 \end{tabular}
 \end{table}
 
-When we look at the result from each test set of acute pain (AP) from the best model in Table \ref{tab:auc_leave_one_out}, we see that videos $3_{AP}$ and $5_{AP}$ have a lower AUC, which shows how much variations in the images can affect the final result when we work with little.
+When we look at the result from each test set of acute pain (AP) from the best model in Table \ref{tab:auc_leave_one_out}, we see that videos $3_{AP}$ and $5_{AP}$ have a lower AUC, which shows how much variations in the images can affect the final result when we work with a small number of subjects.
 
 \section{Visual Explanations}
 
@@ -143,7 +143,7 @@ We have attempted to use this technique to identify the parts of the image our m
 
 \begin{figure}[h!tp]
     \centering
-    \includegraphics[width=0.4\textwidth]{imgs/chap6_gradcam.png}
+    \includegraphics[width=0.32\textwidth]{imgs/chap6_gradcam.png}
     \caption{Grad-CAM heat map for visual explanations.}
     \label{fig:gradcam}
 \end{figure}
@@ -152,9 +152,9 @@ We have attempted to use this technique to identify the parts of the image our m
 
 In this section, we aim to answer the proposed research questions from the beginning of this chapter based on the results we presented.
 
-Regarding \textbf{RQ1}, we believe our results showed in tables \ref{tab:accuracy_all} and \ref{tab:accuracy_auc_ap} are a good argument to show it is viable to develop a learning model capable of effectively identifying pain. We believe an accuracy of 0.787 is good evidence we are in the right direction, even considering that a new experiment with more data could be necessary to validate these conclusions further. As data is complicated to collect, we think our experimental process was able to extract significant results out of it.
+Regarding \textbf{RQ1}, we believe our results showed in tables \ref{tab:accuracy_all} and \ref{tab:accuracy_auc_ap} are a good argument to show it is viable to develop a learning model capable of effectively identifying pain. We believe an accuracy of 78.7\% is a good evidence that we are in the right direction, even considering that a new experiment with more data could be necessary to validate these conclusions any further. As data is complicated to collect, we think our experimental process was able to extract significant results out of it.
 
 As for \textbf{RQ2}, we did see our model had problems in discriminating images of acute pain from those of an acoustic stimulus, although it did so very well from images of rest. It appears the images from acoustic stimulus indeed made the task more difficult, but we believe this effect would be mitigated if we had a larger dataset available for training. Nevertheless, even if we have a false positive predicted from an acoustic stimulus image, from a precautionary perspective, it would still benefit the fetus, as this could be an indication of discomfort and could also be treated.
 
-Finally, for \textbf{RQ3}, it does appear transfer learning with pre-training in the VGGFace2 dataset performs better than when trained on ImageNet, as it achieved our best result. We believe this comes from the fact the pre-training on face images was able to learn features in their middle to last layers related to the human face, such as the mouth, the eyes, the chin, the nose. Even though the fetus images are relatively different, these features are still present, which could explain why this model detected them and performed better. 
+Finally, for \textbf{RQ3}, it does appear transfer learning with pre-training in the VGGFace2 dataset performs better than when trained on ImageNet, as it achieved our best result. We believe this comes from the fact the pre-training on face images was able to learn features in their middle to last layers related to the human face, such as the mouth, the eyes, the chin, the nose. Even though the fetus images are relatively different, these features are still present, which could explain why the model detected them and performed better. 
 

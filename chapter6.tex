@@ -48,14 +48,14 @@ However, when looking at all the results, we can see that the overall standard d
          &        &          &     Mean &    Std \\
 Training & Transforms & Network &          &        \\
 \midrule
-frozen   & weak   & ResNet (ImageNet) &    0.778 &  0.267 \\
-frozen   & weak   & ResNet (VGGFace2) &    0.721 &  0.275 \\
-frozen   & strong & ResNet (ImageNet) &    0.671 &  0.308 \\
-frozen   & strong & ResNet (VGGFace2) &    \textbf{0.787} & \textbf{ 0.231} \\
-unfrozen & weak   & ResNet (ImageNet) &    0.702 &  0.273 \\
-unfrozen & weak   & ResNet (VGGFace2) &    0.731 &  0.237 \\
-unfrozen & strong & ResNet (ImageNet) &    0.749 &  0.243 \\
-unfrozen & strong & ResNet (VGGFace2) &    0.727 &  0.243 \\
+frozen   & weak   & ResNet (ImageNet) &    0.786 &  0.231 \\
+frozen   & weak   & ResNet (VGGFace2) &    0.821 &  0.162 \\
+frozen   & strong & ResNet (ImageNet) &    0.772 &  0.211 \\
+frozen   & strong & ResNet (VGGFace2) &    \textbf{0.848} & \textbf{ 0.143} \\
+unfrozen & weak   & ResNet (ImageNet) &    0.804 &  0.214 \\
+unfrozen & weak   & ResNet (VGGFace2) &    0.784 &  0.213 \\
+unfrozen & strong & ResNet (ImageNet) &    0.782 &  0.205 \\
+unfrozen & strong & ResNet (VGGFace2) &    0.812 &  0.168 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -63,15 +63,14 @@ unfrozen & strong & ResNet (VGGFace2) &    0.727 &  0.243 \\
 When we look at the accuracy reported in each test set for the best model in Table \ref{tab:accuracy_leave_one_out}, we can see the model performs well in the acute pain (AP) and rest (RE) groups, but has a hard time predicting images from the acoustic stimulus (AS) group.
 
 \begin{table}[h!tp]
-\setlength{\tabcolsep}{3.41pt}
 \centering
 \caption{Accuracy per test set in the leave-one-out for the best model.}
 \label{tab:accuracy_leave_one_out}
-\begin{tabular}{lllllllllllll}
+\begin{tabular}{llllllllll}
 \hline
-\multicolumn{13}{l}{Accuracy}        \\ \hline
-\multicolumn{1}{l|}{$1_{AP}$}  & \multicolumn{1}{l|}{$2_{AP}$}  & \multicolumn{1}{l|}{$3_{AP}$}  & \multicolumn{1}{l|}{$4_{AP}$}  & \multicolumn{1}{l|}{$5_{AP}$}  & \multicolumn{1}{l|}{$6_{AP}$}  & \multicolumn{1}{l|}{$7_{RE}$}  & \multicolumn{1}{l|}{$8_{RE}$}  & \multicolumn{1}{l|}{$9_{RE}$}  & \multicolumn{1}{l|}{$10_{RE}$} & \multicolumn{1}{l|}{$11_{AS}$} & \multicolumn{1}{l|}{$12_{AS}$} & $13_{AS}$ \\ \hline
-\multicolumn{1}{l|}{0.917} & \multicolumn{1}{l|}{0.824} & \multicolumn{1}{l|}{0.583} & \multicolumn{1}{l|}{0.875} & \multicolumn{1}{l|}{0.850} & \multicolumn{1}{l|}{0.769} & \multicolumn{1}{l|}{1.000} & \multicolumn{1}{l|}{1.000} & \multicolumn{1}{l|}{1.000} & \multicolumn{1}{l|}{0.667} & \multicolumn{1}{l|}{0.250} & \multicolumn{1}{l|}{0.500} & 1.000 \\ \hline
+\multicolumn{10}{l}{Accuracy}        \\ \hline
+\multicolumn{1}{l|}{$1_{AP}$}  & \multicolumn{1}{l|}{$2_{AP}$}  & \multicolumn{1}{l|}{$3_{AP}$}  & \multicolumn{1}{l|}{$4_{AP}$}  & \multicolumn{1}{l|}{$5_{AP}$}  & \multicolumn{1}{l|}{$6_{AP}$}  & \multicolumn{1}{l|}{$7_{RE}$}  & \multicolumn{1}{l|}{$8_{RE}$}  & \multicolumn{1}{l|}{$9_{RE}$}  & $10_{RE}$  \\ \hline
+\multicolumn{1}{l|}{0.917} & \multicolumn{1}{l|}{0.824} & \multicolumn{1}{l|}{0.583} & \multicolumn{1}{l|}{0.875} & \multicolumn{1}{l|}{0.850} & \multicolumn{1}{l|}{0.769} & \multicolumn{1}{l|}{1.000} & \multicolumn{1}{l|}{1.000} & \multicolumn{1}{l|}{1.000} & 0.667  \\ \hline
 \end{tabular}
 \end{table}
 
@@ -85,8 +84,7 @@ If we look at the accuracy mean of the test sets in Table \ref{tab:mean_accuracy
 \hline
                        & Accuracy \\ \hline
 Acute Pain (AP)        & 0.803    \\
-Rest (RE)              & 0.917    \\
-Acoustic Stimulus (AS) & 0.583    \\ \hline
+Rest (RE)              & 0.917    \\ \hline
 \end{tabular}
 \end{table}
 
@@ -121,7 +119,6 @@ We can see that the best model is still the same as the one from Table \ref{tab:
 Also, we can see the standard deviation is much lower, which can be explained not only by the fact we have fewer validations sets to consider but also because our model is performing better at predicting acute pain videos.
 
 \begin{table}[h!tp]
-\setlength{\tabcolsep}{3.41pt}
 \centering
 \caption{AUC per test set in the leave-one-out for the best model, considering only Acute Pain videos.}
 \label{tab:auc_leave_one_out}

@@ -12,7 +12,9 @@ In this chapter, we present the experimental results of our research. As no prev
 
 \section{Setup}
 
-Given we had relatively few data available, we chose a validation strategy that works best in this scenario. Like \cite{CelonaM17}, we used the leave-one-out method for cross-validation, but instead of leaving one image out, we leave one subject. Hence, we produce 13 different combinations containing training and test subsets. On each of these combinations, we train our networks in the training subset with images of twelve fetuses and evaluate on the test subset with images of one. All the evaluations are then averaged to assess the overall performance of the models.
+Given we had relatively few data available, we chose a validation strategy that works best in this scenario. Like \cite{CelonaM17}, we used the leave-one-out method for cross-validation, but instead of leaving one image out, we leave one subject. Additionally, we make use of the images from the Acoustic Stimulus (AS) group only for training purposes, as they belong to a control group, this scenario wouldn't be evaluated in a real-life application.
+
+Hence, we produce 10 different combinations containing training and test subsets, given that Acoustic Stimulus (AS) images are always on training. On each of these combinations, we train our networks in the training subset with images of twelve fetuses and evaluate on the test subset with images of one. All the evaluations are then averaged to assess the overall performance of the models.
 
 In order to find the best network architecture for this particular problem, we have tested a few variations in the setup as described in Chapter 5. These variations are regarding three variables:
 
@@ -60,7 +62,7 @@ unfrozen & strong & ResNet (VGGFace2) &    0.812 &  0.168 \\
 \end{tabular}
 \end{table}
 
-When we look at the accuracy reported in each test set for the best model in Table \ref{tab:accuracy_leave_one_out}, we can see the model performs well in the acute pain (AP) and rest (RE) groups, but has a hard time predicting images from the acoustic stimulus (AS) group.
+When we look at the accuracy reported in each test set for the best model in Table \ref{tab:accuracy_leave_one_out}, we can see the model performs reasonably well both in the acute pain (AP) and rest (RE) groups, with an average accuracy score of 0.803 in the former and 0.917 in the latter.
 
 \begin{table}[h!tp]
 \centering
@@ -73,22 +75,6 @@ When we look at the accuracy reported in each test set for the best model in Tab
 \multicolumn{1}{l|}{0.917} & \multicolumn{1}{l|}{0.824} & \multicolumn{1}{l|}{0.583} & \multicolumn{1}{l|}{0.875} & \multicolumn{1}{l|}{0.850} & \multicolumn{1}{l|}{0.769} & \multicolumn{1}{l|}{1.000} & \multicolumn{1}{l|}{1.000} & \multicolumn{1}{l|}{1.000} & 0.667  \\ \hline
 \end{tabular}
 \end{table}
-
-If we look at the accuracy mean of the test sets in Table \ref{tab:mean_accuracy_group}, which are grouped by the three evaluated scenarios, we can see how our score was much lower in the acoustic stimulus (AS) group than the other two. 
-
-\begin{table}[h!tp]
-\centering
-\caption{Mean accuracy per image group.}
-\label{tab:mean_accuracy_group}
-\begin{tabular}{lc}
-\hline
-                       & Accuracy \\ \hline
-Acute Pain (AP)        & 0.803    \\
-Rest (RE)              & 0.917    \\ \hline
-\end{tabular}
-\end{table}
-
-This result can be explained partly because it was harder to distinguish these images from pain, as the expressions of discomfort, anger, hunger, for example, can also generate similar reactions. However, besides that, we believe the fact this group had fewer videos, and that the original videos were noisier than the other groups, could have also contributed to the lower accuracy.
 
 Nonetheless, we can also take a closer look at the results from the acute pain (AP) group, from which we can measure the AUC. As we can see on Table \ref{tab:accuracy_auc_ap}, we have performed much better on this group, especially considering we had images of the same fetuses on both states, pain and non-pain. This result is very promising, as it indicates our model is able to discriminate pain from rest on images of fetuses.
 
@@ -145,11 +131,13 @@ We have attempted to use this technique to identify the parts of the image our m
     \label{fig:gradcam}
 \end{figure}
 
+It is important to highlight these explanations are an essential feature in an eventual application of our system in real life. As doctors and specialists look at the images produced by the model, the heat map should ideally agree with the indicators from pain scales and direct their view to regions of interest where manifestations of pain are present. We believe this feature would certainly give more robustness to the results and facilitate adoption by the users. As such, we stand out its importance and suggest further research as a future work topic in the next chapter.
+
 \section{Answering Our Research Questions}
 
 In this section, we aim to answer the proposed research questions from the beginning of this chapter based on the results we presented.
 
-Regarding \textbf{RQ1}, we believe our results showed in tables \ref{tab:accuracy_all} and \ref{tab:accuracy_auc_ap} are a good argument to show it is viable to develop a learning model capable of effectively identifying pain. We believe an accuracy of 78.7\% is a good evidence that we are in the right direction, even considering that a new experiment with more data could be necessary to validate these conclusions any further. As data is complicated to collect, we think our experimental process was able to extract significant results out of it.
+Regarding \textbf{RQ1}, we believe our results showed in tables \ref{tab:accuracy_all} and \ref{tab:accuracy_auc_ap} are a good argument to show it is viable to develop a learning model capable of effectively identifying pain. We believe an accuracy of 84.8\% is a good evidence that we are in the right direction, even considering that a new experiment with more data could be necessary to validate these conclusions any further. As data is complicated to collect, we think our experimental process was able to extract significant results out of it.
 
 As for \textbf{RQ2}, we did see our model had problems in discriminating images of acute pain from those of an acoustic stimulus, although it did so very well from images of rest. It appears the images from acoustic stimulus indeed made the task more difficult, but we believe this effect would be mitigated if we had a larger dataset available for training. Nevertheless, even if we have a false positive predicted from an acoustic stimulus image, from a precautionary perspective, it would still benefit the fetus, as this could be an indication of discomfort and could also be treated.
 
